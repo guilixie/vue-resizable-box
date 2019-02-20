@@ -1,45 +1,45 @@
 {
-  "name": "vue-resizable-box",
-  "version": "0.0.1",
-  "description": "A resizable container component for vue.",
-  "main": "index.js",
-  "scripts": {
-    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
-    "pub": "npm run build && npm publish"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/guilixie/vue-resizable-box.git"
-  },
-  "keywords": [
-    "vue",
-    "vue2",
-    "resizable",
-    "resizable-box",
-    "expand",
-    "resize"
-  ],
-  "author": "guilixie <597634713@qq.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/guilixie/vue-resizable-box/issues"
-  },
-  "homepage": "https://github.com/guilixie/vue-resizable-box#readme",
-  "peerDependencies": {
-    "vue": "^2.6.6"
-  },
-  "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.5",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-stage-3": "^6.24.1",
-    "cross-env": "^5.2.0",
-    "css-loader": "^2.1.0",
-    "stylus": "^0.54.5",
-    "stylus-loader": "^3.0.2",
-    "vue-loader": "^15.6.4",
-    "vue-template-compiler": "^2.6.6",
-    "webpack": "^3.6.0",
-    "webpack-dev-server": "^2.9.1"
-  }
+    "name": "vue-resizable-box",
+    "version": "0.0.1",
+    "description": "A vue resizable container component.",
+    "main": "dist/vue-resizable-box.js",
+    "scripts": {
+        "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
+        "pub": "npm run build && npm publish"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/guilixie/vue-resizable-box.git"
+    },
+    "keywords": [
+        "vue",
+        "vue2",
+        "resizable",
+        "resizable-box",
+        "expand",
+        "resize"
+    ],
+    "author": "guilixie <597634713@qq.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/guilixie/vue-resizable-box/issues"
+    },
+    "homepage": "https://github.com/guilixie/vue-resizable-box#readme",
+    "peerDependencies": {
+        "vue": "^2.6.6"
+    },
+    "devDependencies": {
+        "babel-core": "^6.26.3",
+        "babel-loader": "^7.1.5",
+        "babel-preset-env": "^1.7.0",
+        "babel-preset-stage-3": "^6.24.1",
+        "cross-env": "^5.2.0",
+        "css-loader": "^2.1.0",
+        "stylus": "^0.54.5",
+        "stylus-loader": "^3.0.2",
+        "vue-loader": "^15.6.4",
+        "vue-template-compiler": "^2.6.6",
+        "webpack": "^3.6.0",
+        "webpack-dev-server": "^2.9.1"
+    }
 }
