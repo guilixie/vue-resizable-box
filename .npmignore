@@ -1,0 +1,12 @@
+node_modules
+samples
+*.config.js
+yarn.lock
+.babelrc
+.editorconfig
+Makefile
+CHANGELOG.md
+
+# GitHub pages
+CNAME
+_config.yml

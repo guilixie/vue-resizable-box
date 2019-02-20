@@ -1,18 +1,20 @@
 <template>
-  <div class="expand-content-wrap" :class="mode">
-    <div v-for="(val, key) in option" :style="{[mode==='horizontal' ? 'width' : 'height']: (val.size * 100) / totalSize + '%'}" :key="key" class="section-wrap">
-      <div class="show-box" v-show="val.size != 0">
-        <div class="expand-btn-box" v-for="(btn, idx) in val.buttons" :key="`buttons_${idx}`" :style="btn.position" :class="[btn.direction, !btn.isExpanded ? 'not-expand' : '']" @click="switchBox(btn, idx, key)">
-          <i :class="btn.icon" class="expand-btn"  />
+  <div class="resizable-box">
+    <div class="content-wrap" :class="mode">
+      <div v-for="(val, key) in option" :style="{[mode==='horizontal' ? 'width' : 'height']: (val.size * 100) / totalSize + '%'}" :key="key" class="section-wrap">
+        <div class="show-box" v-show="val.size != 0">
+          <div class="expand-btn-box" v-for="(btn, idx) in val.buttons" :key="`buttons_${idx}`" :style="btn.position" :class="[btn.direction, !btn.isExpanded ? 'not-expand' : '']" @click="switchBox(btn, idx, key)">
+            <i :class="btn.icon" class="expand-btn"  />
+          </div>
+          <slot :name="key"></slot>
         </div>
-        <slot :name="key"></slot>
       </div>
     </div>
   </div>
 </template>
 <script>
 export default {
-  name: 'ExpandBox',
+  name: 'ResizableBox',
   props: {
     mode: {
       type: String,
@@ -129,83 +131,84 @@ export default {
   }
 }
 </script>
-<style lang="stylus" scoped>
-.expand-content-wrap
-  display flex
-  box-sizing border-box
-  width 100%
-  height 100%
-  min-height 100px
-  .section-wrap
-    position relative
-    box-sizing border-box
-  .show-box
-    box-sizing border-box
-    height 100%
-    transition all 0.4s ease
-  .expand-btn-box
-    position absolute
-    margin auto
+<style lang="stylus">
+.resizable-box
+  .content-wrap
     display flex
-    justify-content center
-    align-items center
-    background #409eff
-    border-radius 4px
     box-sizing border-box
-    cursor pointer
-    overflow hidden
-    z-index 1998
-    transition transform 0.4s ease
-    .expand-btn
-      font-size 14px
-      color #fff
-    &:hover
-      opacity 0.9
-    &:active
-      opacity 0.8
-  .left
-    border-radius 0 4px 4px 0
-  .right
-    border-radius 4px 0 0 4px
-  .down
-    border-radius 4px 4px 0 0
-  .up
-    border-radius 0 0 4px 4px
-  .not-expand
-    transform rotate(180deg)
-    transform-origin 50% 50%
-    &.left
-      border-radius 4px 0 0 4px
-    &.right
-      border-radius 0 4px 4px 0
-    &.down
-      border-radius 0 0 4px 4px
-    &.up
-      border-radius 4px 4px 0 0
-.horizontal
-  flex-direction row
-  .section-wrap
+    width 100%
     height 100%
     min-height 100px
-    transition width 0.4s ease
-  .section-wrap + .section-wrap
-    border-left 1px solid #ebeef5
-  .expand-btn-box
-    width 14px
-    height 42px
-    top 0
-    bottom 0
-.vertical
-  flex-direction column
-  .section-wrap
-    width 100%
-    transition height 0.4s ease
-  .section-wrap + .section-wrap
-    border-top 1px solid #ebeef5
-  .expand-btn-box
+    .section-wrap
+      position relative
+      box-sizing border-box
+    .show-box
+      box-sizing border-box
+      height 100%
+      transition all 0.4s ease
+    .expand-btn-box
+      position absolute
+      margin auto
+      display flex
+      justify-content center
+      align-items center
+      background #409eff
+      border-radius 4px
+      box-sizing border-box
+      cursor pointer
+      overflow hidden
+      z-index 1998
+      transition transform 0.4s ease
+      .expand-btn
+        font-size 14px
+        color #fff
+      &:hover
+        opacity 0.9
+      &:active
+        opacity 0.8
+    .left
+      border-radius 0 4px 4px 0
+    .right
+      border-radius 4px 0 0 4px
+    .down
+      border-radius 4px 4px 0 0
+    .up
+      border-radius 0 0 4px 4px
+    .not-expand
+      transform rotate(180deg)
+      transform-origin 50% 50%
+      &.left
+        border-radius 4px 0 0 4px
+      &.right
+        border-radius 0 4px 4px 0
+      &.down
+        border-radius 0 0 4px 4px
+      &.up
+        border-radius 4px 4px 0 0
+  .horizontal
+    flex-direction row
+    .section-wrap
+      height 100%
+      min-height 100px
+      transition width 0.4s ease
+    .section-wrap + .section-wrap
+      border-left 1px solid #ebeef5
+    .expand-btn-box
+      width 14px
+      height 42px
+      top 0
+      bottom 0
+  .vertical
     flex-direction column
-    width 42px
-    height 14px
-    left 0
-    right 0
+    .section-wrap
+      width 100%
+      transition height 0.4s ease
+    .section-wrap + .section-wrap
+      border-top 1px solid #ebeef5
+    .expand-btn-box
+      flex-direction column
+      width 42px
+      height 14px
+      left 0
+      right 0
 </style>
