@@ -4,6 +4,7 @@ samples
 yarn.lock
 .babelrc
 .editorconfig
+*.map
 Makefile
 CHANGELOG.md
 

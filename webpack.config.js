@@ -7,7 +7,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, './dist'),
         publicPath: '/dist/',
-        filename: 'vue-resizable-box.js ',
+        filename: 'vue-resizable-box.js',
         library: 'vue-resizable-box',
         libraryTarget: 'umd',
         umdNamedDefine: true
