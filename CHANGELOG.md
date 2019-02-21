@@ -1,4 +1,14 @@
-### npm run build (HEAD -> master)
+### make some test and sample, release version 1.0.0 (HEAD -> master)
+>Thu, 21 Feb 2019 17:11:35 +0800
+
+>Author: guilixie (597634713@qq.com)
+
+>Commiter: guilixie (597634713@qq.com)
+
+
+
+
+### npm run build (origin/master)
 >Thu, 21 Feb 2019 10:57:32 +0800
 
 >Author: guilixie (597634713@qq.com)
@@ -8,7 +18,7 @@
 
 
 
-### update config (origin/master)
+### update config
 >Wed, 20 Feb 2019 22:42:00 +0800
 
 >Author: guilixie (597634713@qq.com)

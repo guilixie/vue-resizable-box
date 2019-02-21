@@ -1,9 +1,14 @@
 node_modules
+src/dev
+static
 samples
+index.html
 *.config.js
+*.log
 yarn.lock
 .babelrc
 .editorconfig
+.eslintrc.json
 *.map
 Makefile
 CHANGELOG.md

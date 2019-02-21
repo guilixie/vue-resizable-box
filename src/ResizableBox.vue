@@ -13,6 +13,8 @@
   </div>
 </template>
 <script>
+import './iconfont.css'
+
 export default {
   name: 'ResizableBox',
   props: {
@@ -28,7 +30,7 @@ export default {
             size: 1, // 尺寸比例
             buttons: [{
               direction: 'right', // 方向 left right up down
-              icon: 'el-icon-arrow-right', // 图标
+              icon: 'iconfont icon-ios-arrow-forward', // 图标
               position: {
                 right: '-1px'
               }, // 相对于本slot绝对定位位置
@@ -39,7 +41,7 @@ export default {
             size: 1,
             buttons: [{
               direction: 'left',
-              icon: 'el-icon-arrow-left',
+              icon: 'iconfont icon-ios-arrow-back',
               position: {
                 left: '-1px'
               },
@@ -56,10 +58,10 @@ export default {
       defaultOpt: {
         directions: ['left', 'right', 'up', 'down'],
         icon: {
-          left: 'el-icon-arrow-left',
-          right: 'el-icon-arrow-right',
-          up: 'el-icon-arrow-up',
-          down: 'el-icon-arrow-down'
+          left: 'iconfont icon-ios-arrow-back',
+          right: 'iconfont icon-ios-arrow-forward',
+          up: 'iconfont icon-ios-arrow-up',
+          down: 'iconfont icon-ios-arrow-down'
         },
         position: {
           left: { left: '-1px' },
@@ -133,6 +135,8 @@ export default {
 </script>
 <style lang="stylus">
 .resizable-box
+  width 100%
+  height 100%
   .content-wrap
     display flex
     box-sizing border-box
