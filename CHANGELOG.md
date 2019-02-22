@@ -1,4 +1,14 @@
-### building component for publish (HEAD -> master)
+### 1.0.2 (HEAD -> master)
+>Fri, 22 Feb 2019 18:19:46 +0800
+
+>Author: guilixie (597634713@qq.com)
+
+>Commiter: guilixie (597634713@qq.com)
+
+
+
+
+### building component for publish (origin/master)
 >Fri, 22 Feb 2019 18:18:12 +0800
 
 >Author: guilixie (597634713@qq.com)
@@ -8,7 +18,7 @@
 
 
 
-### fix: when used nestedly, styles are messy (origin/master)
+### fix: when used nestedly, styles are messy
 >Fri, 22 Feb 2019 18:14:04 +0800
 
 >Author: guilixie (597634713@qq.com)
