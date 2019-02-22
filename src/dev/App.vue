@@ -10,11 +10,13 @@
 </div>
 </template>
 <script>
-import ResizableBox from '@/ResizableBox'
+import ResizableBox from '../../index.js'
+import Vue from 'vue'
+Vue.use(ResizableBox)
 
 export default {
   name: 'App',
-  components: { ResizableBox },
+  components: {},
   data () {
     return {
       option: {
@@ -23,7 +25,7 @@ export default {
           buttons: [{direction: 'right'}]
         },
         center: {
-          size: 1,
+          size: 2,
           buttons:[{
             direction: 'left'
           },{
@@ -39,13 +41,21 @@ export default {
         top: {
           size: 1,
           buttons: [{
+            direction: 'down'
+          }]
+        },
+        center: {
+          size: 1,
+          buttons: [{
             direction: 'up'
+          },{
+            direction: 'down'
           }]
         },
         bottom: {
           size: 1,
           buttons: [{
-            direction: 'down'
+            direction: 'up'
           }]
         }
       }

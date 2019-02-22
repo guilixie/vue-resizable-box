@@ -191,28 +191,30 @@ export default {
         border-radius 4px 4px 0 0
   .horizontal
     flex-direction row
-    .section-wrap
+    &>.section-wrap
       height 100%
       min-height 100px
       transition width 0.4s ease
-    .section-wrap + .section-wrap
+      &>.show-box
+        &>.expand-btn-box
+          width 14px
+          height 42px
+          top 0
+          bottom 0
+    &>.section-wrap + .section-wrap
       border-left 1px solid #ebeef5
-    .expand-btn-box
-      width 14px
-      height 42px
-      top 0
-      bottom 0
   .vertical
     flex-direction column
-    .section-wrap
+    &>.section-wrap
       width 100%
       transition height 0.4s ease
-    .section-wrap + .section-wrap
+      &>.show-box
+        &>.expand-btn-box
+          flex-direction column
+          width 42px
+          height 14px
+          left 0
+          right 0
+    &>.section-wrap + .section-wrap
       border-top 1px solid #ebeef5
-    .expand-btn-box
-      flex-direction column
-      width 42px
-      height 14px
-      left 0
-      right 0
 </style>

@@ -1,4 +1,14 @@
-### 1.0.1 (HEAD -> master)
+### fix: when used nestedly, styles are messy (HEAD -> master)
+>Fri, 22 Feb 2019 18:14:04 +0800
+
+>Author: guilixie (597634713@qq.com)
+
+>Commiter: guilixie (597634713@qq.com)
+
+
+
+
+### 1.0.1 (tag: v1.0.1, origin/master)
 >Thu, 21 Feb 2019 17:57:41 +0800
 
 >Author: guilixie (597634713@qq.com)
@@ -8,7 +18,7 @@
 
 
 
-### fix: icon did not show (origin/master)
+### fix: icon did not show
 >Thu, 21 Feb 2019 17:57:02 +0800
 
 >Author: guilixie (597634713@qq.com)
