@@ -1,6 +1,9 @@
 <template>
   <resizable-box :option="option">
     <div slot="left">left-content</div>
+    <div slot="center" class="box-all">
+      <resizable-box :option="option1" mode="vertical"></resizable-box>
+    </div>
     <div slot="right">right-content</div>
   </resizable-box>
 </template>
@@ -10,18 +13,48 @@ import ResizableBox from 'vue-resizable-box'
 Vue.use(ResizableBox)
 
 export default {
-  name:'ForEs6',
+  name: 'ForEs6',
   components: {},
   data () {
     return {
       option: {
-         left: {
+        left: {
           size: 1,
-          buttons: [{direction: 'right'}]
+          buttons: [{ direction: 'right' }]
+        },
+        center: {
+          size: 2,
+          buttons: [{
+            direction: 'left'
+          }, {
+            direction: 'right'
+          }]
         },
         right: {
           size: 1,
-          buttons: [{direction: 'left'}]
+          buttons: [{ direction: 'left' }]
+        }
+      },
+      option1: {
+        top: {
+          size: 1,
+          buttons: [{
+            direction: 'down'
+          }]
+        },
+        center: {
+          size: 1,
+          buttons: [{
+            direction: 'up'
+          }, {
+            direction: 'down'
+          }]
+        },
+        bottom: {
+          size: 1,
+          buttons: [{
+            direction: 'up'
+          }]
         }
       }
     }

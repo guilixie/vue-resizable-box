@@ -1,18 +1,61 @@
 <template>
-  <vue-resizable-box :option="option"></vue-resizable-box>
+  <resizable-box :option="option">
+    <div slot="left">left-content</div>
+    <div slot="center" class="box-all">
+      <resizable-box :option="option1" mode="vertical"></resizable-box>
+    </div>
+    <div slot="right">right-content</div>
+  </resizable-box>
 </template>
 <script>
-const vueResizableBox = require('vue-resizable-box')
+const Vue = require('vue')
+const ResizableBox = require('vue-resizable-box')
+Vue.use(ResizableBox)
 
 export default {
-  name:'ForCommonjs',
-  components: {
-    vueResizableBox
-  },
+  name: 'ForCommonjs',
+  components: {},
   data () {
     return {
       option: {
-
+        left: {
+          size: 1,
+          buttons: [{ direction: 'right' }]
+        },
+        center: {
+          size: 2,
+          buttons: [{
+            direction: 'left'
+          }, {
+            direction: 'right'
+          }]
+        },
+        right: {
+          size: 1,
+          buttons: [{ direction: 'left' }]
+        }
+      },
+      option1: {
+        top: {
+          size: 1,
+          buttons: [{
+            direction: 'down'
+          }]
+        },
+        center: {
+          size: 1,
+          buttons: [{
+            direction: 'up'
+          }, {
+            direction: 'down'
+          }]
+        },
+        bottom: {
+          size: 1,
+          buttons: [{
+            direction: 'up'
+          }]
+        }
       }
     }
   }
