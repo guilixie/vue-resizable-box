@@ -1,5 +1,4 @@
-require(['Vue', 'ResizableBox'], function(Vue, ResizableBox) {
-
+require(['vue', 'vue-resizable-box'], function(Vue, VueResizableBox) {
     var option = {
         left: {
             size: 1,
@@ -46,7 +45,7 @@ require(['Vue', 'ResizableBox'], function(Vue, ResizableBox) {
         }
     };
 
-    Vue.use(ResizableBox);
+    Vue.use(VueResizableBox.default);
 
     new Vue({
         data: function() {
@@ -55,13 +54,13 @@ require(['Vue', 'ResizableBox'], function(Vue, ResizableBox) {
                 option1: option1
             }
         },
-        template: '<resizable-box :option="option">\
+        template: '<vue-resizable-box :option="option">\
           <div slot="left">left-content</div>\
           <div slot="center" class="box-all">\
-            <resizable-box :option="option1" mode="vertical"></resizable-box>\
+            <vue-resizable-box :option="option1" mode="vertical"></vue-resizable-box>\
           </div>\
           <div slot="right">right-content</div>\
-        </resizable-box>'
+        </vue-resizable-box>'
     }).$mount('#main');
 
 });

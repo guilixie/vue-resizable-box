@@ -79,13 +79,13 @@
                     option1: option1
                 }
             },
-            template: '<resizable-box :option="option">\
+            template: '<vue-resizable-box :option="option">\
               <div slot="left">left-content</div>\
               <div slot="center" class="box-all">\
-                <resizable-box :option="option1" mode="vertical"></resizable-box>\
+                <vue-resizable-box :option="option1" mode="vertical"></vue-resizable-box>\
               </div>\
               <div slot="right">right-content</div>\
-            </resizable-box>'
+            </vue-resizable-box>'
         }).$mount('#main');
     </script>
 </body>
