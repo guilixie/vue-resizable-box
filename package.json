@@ -1,6 +1,6 @@
 {
     "name": "vue-resizable-box",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "A vue resizable container component.",
     "main": "dist/vue-resizable-box.js",
     "scripts": {
