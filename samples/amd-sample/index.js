@@ -45,7 +45,7 @@ require(['vue', 'vue-resizable-box'], function(Vue, VueResizableBox) {
         }
     };
 
-    Vue.use(VueResizableBox.default);
+    Vue.use(VueResizableBox);
 
     new Vue({
         data: function() {
