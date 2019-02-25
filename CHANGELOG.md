@@ -1,4 +1,14 @@
-### update version 1.0.4 (HEAD -> master)
+### update samples (HEAD -> master)
+>Mon, 25 Feb 2019 23:39:49 +0800
+
+>Author: guilixie (597634713@qq.com)
+
+>Commiter: guilixie (597634713@qq.com)
+
+
+
+
+### update version 1.0.4 (origin/master, origin/HEAD)
 >Mon, 25 Feb 2019 23:30:17 +0800
 
 >Author: guilixie (597634713@qq.com)
@@ -18,7 +28,7 @@
 
 
 
-### Configure which module or modules will be exposed via the libraryTarget, webpack config output.libraryExport: "default" (origin/master, origin/HEAD)
+### Configure which module or modules will be exposed via the libraryTarget, webpack config output.libraryExport: "default"
 >Mon, 25 Feb 2019 23:14:32 +0800
 
 >Author: guilixie (597634713@qq.com)
