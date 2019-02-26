@@ -7633,10 +7633,12 @@ vue-loader@^15.6.2:
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
 
-vue-resizable-box@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/vue-resizable-box/-/vue-resizable-box-1.0.0.tgz#e6210ed068f1ff3fc61f06be93905a395f9deccb"
-  integrity sha512-9Imk4IF8FOuY7OrXij9O8gvrTUZF+j4pyQoGPvDJZ9+c6ORKqFWvdE5rVpluRZq4hGWYGLLkQj4bYX74+4z8Vw==
+vue-resizable-box@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/vue-resizable-box/-/vue-resizable-box-1.0.4.tgz#aa9da7902a9bb50bf3e43a9456d7a7015c50df96"
+  integrity sha512-xLGsEhELRCVah+9nHwGM/cKKZRzpoJYbplNnZ4p0BTNzWiXNimOvxP35xQ440WYTj71wUBMcoddcDAB+j51oqw==
+  dependencies:
+    vue "2.6.6"
 
 vue-style-loader@^4.1.0:
   version "4.1.2"
@@ -7659,7 +7661,7 @@ vue-template-es2015-compiler@^1.8.2:
   resolved "http://registry.npm.taobao.org/vue-template-es2015-compiler/download/vue-template-es2015-compiler-1.8.2.tgz#dd73e80ba58bb65dd7a8aa2aeef6089cf6116f2a"
   integrity sha1-3XPoC6WLtl3XqKoq7vYInPYRbyo=
 
-vue@^2.6.6:
+vue@2.6.6, vue@^2.6.6:
   version "2.6.6"
   resolved "http://registry.npm.taobao.org/vue/download/vue-2.6.6.tgz#dde41e483c11c46a7bf523909f4f2f816ab60d25"
   integrity sha1-3eQeSDwRxGp79SOQn08vgWq2DSU=

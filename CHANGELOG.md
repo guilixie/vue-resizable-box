@@ -1,4 +1,94 @@
-### 1.0.2 (HEAD -> master)
+### update samples (origin/master)
+>Mon, 25 Feb 2019 23:39:49 +0800
+
+>Author: guilixie (597634713@qq.com)
+
+>Commiter: guilixie (597634713@qq.com)
+
+
+
+
+### update version 1.0.4
+>Mon, 25 Feb 2019 23:30:17 +0800
+
+>Author: guilixie (597634713@qq.com)
+
+>Commiter: guilixie (597634713@qq.com)
+
+
+
+
+### 1.0.4
+>Mon, 25 Feb 2019 23:23:46 +0800
+
+>Author: guilixie (597634713@qq.com)
+
+>Commiter: guilixie (597634713@qq.com)
+
+
+
+
+### Configure which module or modules will be exposed via the libraryTarget, webpack config output.libraryExport: "default"
+>Mon, 25 Feb 2019 23:14:32 +0800
+
+>Author: guilixie (597634713@qq.com)
+
+>Commiter: guilixie (597634713@qq.com)
+
+
+
+
+### 1.0.3
+>Sun, 24 Feb 2019 15:11:04 +0800
+
+>Author: guilixie (597634713@qq.com)
+
+>Commiter: guilixie (597634713@qq.com)
+
+
+
+
+### 1.0.2
+>Sun, 24 Feb 2019 15:05:33 +0800
+
+>Author: guilixie (597634713@qq.com)
+
+>Commiter: guilixie (597634713@qq.com)
+
+
+
+
+### change icons
+>Sun, 24 Feb 2019 14:55:53 +0800
+
+>Author: guilixie (597634713@qq.com)
+
+>Commiter: guilixie (597634713@qq.com)
+
+
+
+
+### update amd-sample
+>Sun, 24 Feb 2019 00:56:39 +0800
+
+>Author: guilixie (597634713@qq.com)
+
+>Commiter: guilixie (597634713@qq.com)
+
+
+
+
+### complete samples and make some test
+>Sat, 23 Feb 2019 23:51:56 +0800
+
+>Author: guilixie (597634713@qq.com)
+
+>Commiter: guilixie (597634713@qq.com)
+
+
+
+
+### 1.0.2 (tag: v1.0.2)
 >Fri, 22 Feb 2019 18:19:46 +0800
 
 >Author: guilixie (597634713@qq.com)
@@ -8,7 +98,7 @@
 
 
 
-### building component for publish (origin/master)
+### building component for publish
 >Fri, 22 Feb 2019 18:18:12 +0800
 
 >Author: guilixie (597634713@qq.com)

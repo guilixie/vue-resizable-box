@@ -1,8 +1,8 @@
 <template>
   <div id="app" class="box-all">
     <ul class="router-container">
-      <li><a href="javascript:;" @click="changeComp('ForEs6')">ForEs6</a></li>
-      <li><a href="javascript:;" @click="changeComp('ForCommonjs')">ForCommonjs</a></li>
+      <li :class="{'active': comp === 'ForEs6'}"><a href="#fores6" @click="changeComp('ForEs6')">ForEs6</a></li>
+      <li :class="{'active': comp === 'ForCommonjs'}"><a href="#forcommonjs" @click="changeComp('ForCommonjs')">ForCommonjs</a></li>
     </ul>
     <div class="view-container">
       <component :is="comp"></component>
@@ -34,35 +34,41 @@ export default {
 </script>
 
 <style>
-html,body {
+html,
+body {
   margin: 0;
   padding: 0;
   height: 100%;
 }
 
 .box-all {
-    height: 100%;
+  height: 100%;
 }
 
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
 }
 
-.router-container{
-    list-style: none;
-    display: flex;
-    justify-content: space-around;
-    width: 200px;
-    margin: 0 auto;
-    padding: 20px;
+.router-container {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  width: 200px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-.view-container{
-    border: 1px solid #ccc;
-    height: calc(100% - 60px);
+.router-container > .active > a {
+  color: orange;
+  text-decoration: none;
+}
+
+.view-container {
+  border: 1px solid #ccc;
+  height: calc(100% - 60px);
 }
 </style>

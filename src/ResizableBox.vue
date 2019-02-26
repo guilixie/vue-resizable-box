@@ -4,7 +4,7 @@
       <div v-for="(val, key) in option" :style="{[mode==='horizontal' ? 'width' : 'height']: (val.size * 100) / totalSize + '%'}" :key="key" class="section-wrap">
         <div class="show-box" v-show="val.size != 0">
           <div class="expand-btn-box" v-for="(btn, idx) in val.buttons" :key="`buttons_${idx}`" :style="btn.position" :class="[btn.direction, !btn.isExpanded ? 'not-expand' : '']" @click="switchBox(btn, idx, key)">
-            <i :class="btn.icon" class="expand-btn"  />
+            <i :class="btn.icon" class="expand-btn" />
           </div>
           <slot :name="key"></slot>
         </div>
@@ -30,7 +30,7 @@ export default {
             size: 1, // 尺寸比例
             buttons: [{
               direction: 'right', // 方向 left right up down
-              icon: 'iconfont icon-ios-arrow-forward', // 图标
+              icon: 'iconfont icon-arrow-right', // 图标
               position: {
                 right: '-1px'
               }, // 相对于本slot绝对定位位置
@@ -41,7 +41,7 @@ export default {
             size: 1,
             buttons: [{
               direction: 'left',
-              icon: 'iconfont icon-ios-arrow-back',
+              icon: 'iconfont icon-arrow-left',
               position: {
                 left: '-1px'
               },
@@ -58,10 +58,10 @@ export default {
       defaultOpt: {
         directions: ['left', 'right', 'up', 'down'],
         icon: {
-          left: 'iconfont icon-ios-arrow-back',
-          right: 'iconfont icon-ios-arrow-forward',
-          up: 'iconfont icon-ios-arrow-up',
-          down: 'iconfont icon-ios-arrow-down'
+          left: 'iconfont icon-arrow-left',
+          right: 'iconfont icon-arrow-right',
+          up: 'iconfont icon-arrow-up',
+          down: 'iconfont icon-arrow-down'
         },
         position: {
           left: { left: '-1px' },
@@ -92,7 +92,7 @@ export default {
     recordInfo () {
       // 根据slot名缓存尺寸和btn配置信息
       Object.entries(this.option).forEach(item => {
-        const [slot, {size, buttons = []} = {}] = item
+        const [slot, { size, buttons = [] } = {}] = item
         this.infoRecords[slot] = {
           size: size,
           buttons: buttons.map(btn => {
@@ -164,7 +164,10 @@ export default {
       z-index 1998
       transition transform 0.4s ease
       .expand-btn
-        font-size 14px
+        display inline-block
+        font-size 12px
+        width 12px
+        height 12.5px
         color #fff
       &:hover
         opacity 0.9

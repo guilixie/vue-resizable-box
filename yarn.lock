@@ -4754,10 +4754,10 @@ vue-template-es2015-compiler@^1.8.2:
   resolved "http://registry.npm.taobao.org/vue-template-es2015-compiler/download/vue-template-es2015-compiler-1.8.2.tgz#dd73e80ba58bb65dd7a8aa2aeef6089cf6116f2a"
   integrity sha1-3XPoC6WLtl3XqKoq7vYInPYRbyo=
 
-vue@^2.6.6:
+vue@2.6.6:
   version "2.6.6"
-  resolved "http://registry.npm.taobao.org/vue/download/vue-2.6.6.tgz#dde41e483c11c46a7bf523909f4f2f816ab60d25"
-  integrity sha1-3eQeSDwRxGp79SOQn08vgWq2DSU=
+  resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.6.tgz#dde41e483c11c46a7bf523909f4f2f816ab60d25"
+  integrity sha512-Y2DdOZD8sxApS+iUlwv1v8U1qN41kq6Kw45lM6nVZKhygeWA49q7VCCXkjXqeDBXgurrKWkYQ9cJeEJwAq0b9Q==
 
 watchpack@^1.4.0:
   version "1.6.0"
