@@ -1,13 +1,15 @@
 <template>
   <div class="resizable-box">
     <div class="content-wrap" :class="mode">
-      <div v-for="(val, key) in option" :style="{[mode==='horizontal' ? 'width' : 'height']: (val.size * 100) / totalSize + '%'}" :key="key" class="section-wrap">
-        <div class="show-box" v-show="val.size != 0">
-          <div class="expand-btn-box" v-for="(btn, idx) in val.buttons" :key="`buttons_${idx}`" :style="btn.position" :class="[btn.direction, !btn.isExpanded ? 'not-expand' : '']" @click="switchBox(btn, idx, key)">
+      <div v-for="(opt, slot, index) in option" :style="{[mode==='horizontal' ? 'width' : 'height']: (opt.size * 100) / totalSize + '%'}" :key="slot" class="section-wrap" :ref="`section_wrap_${slot}`">
+        <div class="show-box" v-show="opt.size != 0">
+          <div class="expand-btn-box" v-for="(btn, idx) in opt.buttons" :key="`buttons_${idx}`" :style="btn.position" :class="[btn.direction, !btn.isExpanded ? 'not-expand' : '']" @click="switchBox(btn, idx, slot)">
             <i :class="btn.icon" class="expand-btn" />
           </div>
-          <slot :name="key"></slot>
+          <slot :name="slot"></slot>
         </div>
+         <div class="resize-bar start-resize-bar" :ref="`${slot}_${index}_start`" v-if="resizable && index!==0"></div>
+      <div class="resize-bar end-resize-bar" :ref="`${slot}_${index}_end`" v-if="resizable && index!==slotNum-1"></div>
       </div>
     </div>
   </div>
@@ -22,6 +24,10 @@ export default {
       type: String,
       default: 'horizontal'
     }, // 模式：'horizontal'、'vertical'
+    resizable: {
+      type: Boolean,
+      default: true
+    }, // 可改变尺寸
     option: {
       type: Object,
       default () {
@@ -75,6 +81,9 @@ export default {
   computed: {
     slotArr () {
       return Object.keys(this.option)
+    },
+    slotNum () {
+      return this.slotArr.length
     },
     totalSize () {
       let total = 0
@@ -164,10 +173,7 @@ export default {
       z-index 1998
       transition transform 0.4s ease
       .expand-btn
-        display inline-block
-        font-size 12px
-        width 12px
-        height 12.5px
+        font-size 13px
         color #fff
       &:hover
         opacity 0.9
@@ -192,12 +198,28 @@ export default {
         border-radius 0 0 4px 4px
       &.up
         border-radius 4px 4px 0 0
+    .resize-bar
+      position absolute
+      z-index 1998
   .horizontal
     flex-direction row
     &>.section-wrap
       height 100%
       min-height 100px
       transition width 0.4s ease
+      &>.resize-bar
+        width 3px
+        height 100%
+        top 0
+        cursor col-resize
+      &>.start-resize-bar
+        left -1px
+        &.is-active
+          border-left 1px solid #ebeef5
+      &>.end-resize-bar
+        right -1px
+        &.is-active
+          border-right 1px solid #ebeef5
       &>.show-box
         &>.expand-btn-box
           width 14px
@@ -211,6 +233,19 @@ export default {
     &>.section-wrap
       width 100%
       transition height 0.4s ease
+      &>.resize-bar
+        width 100%
+        height 3px
+        left 0
+        cursor row-resize
+      &>.start-resize-bar
+        top -1px
+        &.is-active
+          border-top 1px solid #ebeef5
+      &>.end-resize-bar
+        bottom -1px
+        &.is-active
+          border-bottom 1px solid #ebeef5
       &>.show-box
         &>.expand-btn-box
           flex-direction column
