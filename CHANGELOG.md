@@ -1,4 +1,14 @@
-### :sparkles: implement box resizing, and make up samples (HEAD -> master)
+### 1.0.5 (HEAD -> master)
+>Fri, 1 Mar 2019 23:33:23 +0800
+
+>Author: guilixie (597634713@qq.com)
+
+>Commiter: guilixie (597634713@qq.com)
+
+
+
+
+### :sparkles: implement box resizing, and make up samples (origin/master, origin/HEAD)
 >Fri, 1 Mar 2019 23:31:51 +0800
 
 >Author: guilixie (597634713@qq.com)
@@ -8,7 +18,7 @@
 
 
 
-### :sparkles: make border resizable, write ui (origin/master, origin/HEAD)
+### :sparkles: make border resizable, write ui
 >Thu, 28 Feb 2019 23:45:37 +0800
 
 >Author: guilixie (597634713@qq.com)
