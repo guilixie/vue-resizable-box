@@ -1,4 +1,14 @@
-### 1.0.5 (HEAD -> master)
+### 1.1.0 (HEAD -> master)
+>Fri, 1 Mar 2019 23:39:03 +0800
+
+>Author: guilixie (597634713@qq.com)
+
+>Commiter: guilixie (597634713@qq.com)
+
+
+
+
+### 1.0.5 (tag: v1.0.5)
 >Fri, 1 Mar 2019 23:33:23 +0800
 
 >Author: guilixie (597634713@qq.com)
