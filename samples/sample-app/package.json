@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "vue": "^2.6.6",
-    "vue-resizable-box": "^1.0.4"
+    "vue-resizable-box": "1.1.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.4.0",
