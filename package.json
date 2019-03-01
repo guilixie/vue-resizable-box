@@ -5,6 +5,7 @@
     "main": "dist/vue-resizable-box.js",
     "scripts": {
         "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
+        "start": "npm run dev",
         "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
         "pub": "npm run build && npm publish"
     },

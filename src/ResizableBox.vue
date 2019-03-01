@@ -8,8 +8,8 @@
           </div>
           <slot :name="slot"></slot>
         </div>
-         <div class="resize-bar start-resize-bar" :ref="`${slot}_${index}_start`" v-if="resizable && index!==0"></div>
-      <div class="resize-bar end-resize-bar" :ref="`${slot}_${index}_end`" v-if="resizable && index!==slotNum-1"></div>
+         <div class="resize-bar start-resize-bar" :ref="`${slot}_${index}_start`" v-if="resizable && index!==0" @mousedown="getStartPosition($event, { type: 'start', slot, index})"></div>
+      <div class="resize-bar end-resize-bar" :ref="`${slot}_${index}_end`" v-if="resizable && index!==slotNum-1" @mousedown="getStartPosition($event, {type: 'end', slot, index})"></div>
       </div>
     </div>
   </div>
@@ -60,6 +60,13 @@ export default {
   },
   data () {
     return {
+      activeBarClass: 'is-active', // 拖动条激活的class
+      resizeState: {
+        type: '',
+        slot: '',
+        index: -1
+      }, // 记录状态
+      positionArr: [], // 鼠标位置数组 [start, end]
       infoRecords: {}, // 记录尺寸比例和按钮位置
       defaultOpt: {
         directions: ['left', 'right', 'up', 'down'],
@@ -96,6 +103,9 @@ export default {
   },
   created () {
     this.recordInfo()
+  },
+  beforeDestroy () {
+    this.clearEvent()
   },
   methods: {
     recordInfo () {
@@ -138,6 +148,63 @@ export default {
       this.option[slot].size = btn.isExpanded ? (this.option[slot].size + this.option[tSlot].size) : this.infoRecords[slot].size
       this.option[tSlot].size = btn.isExpanded ? 0 : this.infoRecords[tSlot].size
       btn.isExpanded = !btn.isExpanded
+    },
+    changeBoxSize () {
+      const {type, slot} = this.resizeState
+      const map = { horizontal: 'clientWidth', vertical: 'clientHeight' }
+      const pmap = { horizontal: 'width', vertical: 'height' }
+      const [{x: startX, y: startY}, {x: endX, y: endY}] = this.positionArr
+      const deta = this.mode === 'horizontal' ? endX - startX : endY - startY
+      if (deta === 0) return
+      const direction = type === 'start' ? 'left' : 'right'
+      const tSlot = this.getTargetSlot(slot, direction)
+      const el = this.$refs[`section_wrap_${slot}`]
+      const tEl = this.$refs[`section_wrap_${tSlot}`]
+      el[0].style[pmap[this.mode]] = `${el[0][map[this.mode]] + (type === 'start' ? -deta : deta) + 1}px`
+      tEl[0].style[pmap[this.mode]] = `${tEl[0][map[this.mode]] + (type === 'start' ? deta : -deta) + 1}px`
+    },
+    getStartPosition (ev, resizeState) {
+      this.positionArr = [{x: ev.pageX, y: ev.pageY}]
+      this.resizeState = resizeState
+      document.addEventListener('mousemove', this.moveToEndPosition)
+      document.addEventListener('mouseup', this.handleMoveUp)
+    },
+    moveToEndPosition (ev) {
+      const {type, slot, index} = this.resizeState
+      const lmap = { horizontal: 'left', vertical: 'top' }
+      const rmap = { horizontal: 'right', vertical: 'bottom' }
+      const len = this.positionArr.length
+      const [{x, y}] = this.positionArr
+      const deta = this.mode === 'horizontal' ? ev.pageX - x : ev.pageY - y
+      const bar = this.$refs[`${slot}_${index}_${type}`]
+      const className = bar[0].className
+      className.indexOf(this.activeBarClass) === -1 && (bar[0].className += ` ${this.activeBarClass}`)
+      type === 'start' ? bar[0].style[lmap[this.mode]] = deta - 1 + 'px' : bar[0].style[rmap[this.mode]] = -deta - 1 + 'px'
+      if (deta === 0) return
+      len > 1 && this.positionArr.pop()
+      this.positionArr.push({x: ev.pageX, y: ev.pageY})
+    },
+    handleMoveUp () {
+      this.changeBoxSize()
+      this.resetBarPosition()
+      this.clearPositionArr()
+      this.clearEvent()
+    },
+    resetBarPosition () {
+      const {type, slot, index} = this.resizeState
+      const lmap = { horizontal: 'left', vertical: 'top' }
+      const rmap = { horizontal: 'right', vertical: 'bottom' }
+      const bar = this.$refs[`${slot}_${index}_${type}`]
+      const className = bar[0].className
+      className.indexOf(this.activeBarClass) > -1 && (bar[0].className = bar[0].className.replace(` ${this.activeBarClass}`, ''))
+      type === 'start' ? bar[0].style[lmap[this.mode]] = '-1px' : bar[0].style[rmap[this.mode]] = '-1px'
+    },
+    clearPositionArr () {
+      this.positionArr = []
+    },
+    clearEvent () {
+      document.removeEventListener('mousemove', this.moveToEndPosition)
+      document.removeEventListener('mouseup', this.handleMoveUp)
     }
   }
 }

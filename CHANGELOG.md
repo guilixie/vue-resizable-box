@@ -1,4 +1,14 @@
-### :sparkles: make border resizable, write ui (HEAD -> master)
+### :sparkles: implement box resizing, and make up samples (HEAD -> master)
+>Fri, 1 Mar 2019 23:31:51 +0800
+
+>Author: guilixie (597634713@qq.com)
+
+>Commiter: guilixie (597634713@qq.com)
+
+
+
+
+### :sparkles: make border resizable, write ui (origin/master, origin/HEAD)
 >Thu, 28 Feb 2019 23:45:37 +0800
 
 >Author: guilixie (597634713@qq.com)
@@ -28,7 +38,7 @@
 
 
 
-### 1.0.4
+### 1.0.4 (tag: v1.0.4)
 >Mon, 25 Feb 2019 23:23:46 +0800
 
 >Author: guilixie (597634713@qq.com)
@@ -48,7 +58,7 @@
 
 
 
-### 1.0.3
+### 1.0.3 (tag: v1.0.3)
 >Sun, 24 Feb 2019 15:11:04 +0800
 
 >Author: guilixie (597634713@qq.com)
@@ -58,7 +68,7 @@
 
 
 
-### 1.0.2
+### 1.0.2 (tag: v1.0.2)
 >Sun, 24 Feb 2019 15:05:33 +0800
 
 >Author: guilixie (597634713@qq.com)
@@ -98,7 +108,7 @@
 
 
 
-### 1.0.2 (tag: v1.0.2)
+### 1.0.2
 >Fri, 22 Feb 2019 18:19:46 +0800
 
 >Author: guilixie (597634713@qq.com)
@@ -128,7 +138,7 @@
 
 
 
-### 1.0.1 (tag: v1.0.1)
+### 1.0.1
 >Thu, 21 Feb 2019 17:57:41 +0800
 
 >Author: guilixie (597634713@qq.com)
