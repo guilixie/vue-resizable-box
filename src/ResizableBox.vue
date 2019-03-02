@@ -82,7 +82,11 @@ export default {
           up: { top: '-1px' },
           down: { bottom: '-1px' }
         }
-      } // 默认配置，根据direction取用
+      }, // 默认配置，根据direction取用
+      clientMap: { horizontal: 'clientWidth', vertical: 'clientHeight' },
+      sizeMap: { horizontal: 'width', vertical: 'height' },
+      lPosMap: { horizontal: 'left', vertical: 'top' },
+      rPosMap: { horizontal: 'right', vertical: 'bottom' }
     }
   },
   computed: {
@@ -149,10 +153,19 @@ export default {
       this.option[tSlot].size = btn.isExpanded ? 0 : this.infoRecords[tSlot].size
       btn.isExpanded = !btn.isExpanded
     },
+    computedPercent (sizeRes) {
+      this.slotArr.forEach(slot => {
+        if (sizeRes[slot] === undefined) {
+          const slotEl = this.$refs[`section_wrap_${slot}`]
+          sizeRes[slot] = slotEl[0][this.clientMap[this.mode]]
+        }
+        this.option[slot].size = sizeRes[slot]
+      })
+      this.recordInfo()
+    },
     changeBoxSize () {
       const {type, slot} = this.resizeState
-      const map = { horizontal: 'clientWidth', vertical: 'clientHeight' }
-      const pmap = { horizontal: 'width', vertical: 'height' }
+      if (this.positionArr.length <= 1) return
       const [{x: startX, y: startY}, {x: endX, y: endY}] = this.positionArr
       const deta = this.mode === 'horizontal' ? endX - startX : endY - startY
       if (deta === 0) return
@@ -160,8 +173,11 @@ export default {
       const tSlot = this.getTargetSlot(slot, direction)
       const el = this.$refs[`section_wrap_${slot}`]
       const tEl = this.$refs[`section_wrap_${tSlot}`]
-      el[0].style[pmap[this.mode]] = `${el[0][map[this.mode]] + (type === 'start' ? -deta : deta) + 1}px`
-      tEl[0].style[pmap[this.mode]] = `${tEl[0][map[this.mode]] + (type === 'start' ? deta : -deta) + 1}px`
+      const sizeRes = {
+        [slot]: el[0][this.clientMap[this.mode]] + (type === 'start' ? -deta : deta) + 1,
+        [tSlot]: tEl[0][this.clientMap[this.mode]] + (type === 'start' ? deta : -deta) + 1
+      }
+      this.computedPercent(sizeRes)
     },
     getStartPosition (ev, resizeState) {
       this.positionArr = [{x: ev.pageX, y: ev.pageY}]
@@ -171,15 +187,14 @@ export default {
     },
     moveToEndPosition (ev) {
       const {type, slot, index} = this.resizeState
-      const lmap = { horizontal: 'left', vertical: 'top' }
-      const rmap = { horizontal: 'right', vertical: 'bottom' }
       const len = this.positionArr.length
+      if (len === 0) return
       const [{x, y}] = this.positionArr
       const deta = this.mode === 'horizontal' ? ev.pageX - x : ev.pageY - y
       const bar = this.$refs[`${slot}_${index}_${type}`]
       const className = bar[0].className
       className.indexOf(this.activeBarClass) === -1 && (bar[0].className += ` ${this.activeBarClass}`)
-      type === 'start' ? bar[0].style[lmap[this.mode]] = deta - 1 + 'px' : bar[0].style[rmap[this.mode]] = -deta - 1 + 'px'
+      type === 'start' ? bar[0].style[this.lPosMap[this.mode]] = deta - 1 + 'px' : bar[0].style[this.rPosMap[this.mode]] = -deta - 1 + 'px'
       if (deta === 0) return
       len > 1 && this.positionArr.pop()
       this.positionArr.push({x: ev.pageX, y: ev.pageY})
@@ -192,12 +207,10 @@ export default {
     },
     resetBarPosition () {
       const {type, slot, index} = this.resizeState
-      const lmap = { horizontal: 'left', vertical: 'top' }
-      const rmap = { horizontal: 'right', vertical: 'bottom' }
       const bar = this.$refs[`${slot}_${index}_${type}`]
       const className = bar[0].className
       className.indexOf(this.activeBarClass) > -1 && (bar[0].className = bar[0].className.replace(` ${this.activeBarClass}`, ''))
-      type === 'start' ? bar[0].style[lmap[this.mode]] = '-1px' : bar[0].style[rmap[this.mode]] = '-1px'
+      type === 'start' ? bar[0].style[this.lPosMap[this.mode]] = '-1px' : bar[0].style[this.rPosMap[this.mode]] = '-1px'
     },
     clearPositionArr () {
       this.positionArr = []
