@@ -1,4 +1,14 @@
-### :ambulance: optimize code and enhance functionality (HEAD -> master)
+### build and publish (HEAD -> master)
+>Sun, 3 Mar 2019 21:35:21 +0800
+
+>Author: guilixie (597634713@qq.com)
+
+>Commiter: guilixie (597634713@qq.com)
+
+
+
+
+### :ambulance: optimize code and enhance functionality (origin/master, origin/HEAD)
 >Sat, 2 Mar 2019 23:47:14 +0800
 
 >Author: guilixie (597634713@qq.com)
@@ -8,7 +18,7 @@
 
 
 
-### :ambulance: update sample-app vue-resizable-box version to the latest (origin/master, origin/HEAD)
+### :ambulance: update sample-app vue-resizable-box version to the latest
 >Fri, 1 Mar 2019 23:45:58 +0800
 
 >Author: guilixie (597634713@qq.com)
