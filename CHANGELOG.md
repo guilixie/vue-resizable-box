@@ -1,4 +1,14 @@
-### :bug: when option prop switch to another object,the button style be messy (HEAD -> master)
+### 1.1.2 (HEAD -> master)
+>Wed, 13 Mar 2019 14:03:31 +0800
+
+>Author: guilixie (597634713@qq.com)
+
+>Commiter: guilixie (597634713@qq.com)
+
+
+
+
+### :bug: when option prop switch to another object,the button style be messy
 >Wed, 13 Mar 2019 14:03:20 +0800
 
 >Author: guilixie (597634713@qq.com)
