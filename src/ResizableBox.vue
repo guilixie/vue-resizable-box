@@ -105,6 +105,11 @@ export default {
       return total
     }
   },
+  watch: {
+    option (newVal) {
+      this.recordInfo(newVal)
+    }
+  },
   created () {
     this.recordInfo()
   },
@@ -112,9 +117,9 @@ export default {
     this.clearEvent()
   },
   methods: {
-    recordInfo () {
+    recordInfo (option = this.option) {
       // 根据slot名缓存尺寸和btn配置信息
-      Object.entries(this.option).forEach(item => {
+      Object.entries(option).forEach(item => {
         const [slot, { size, buttons = [] } = {}] = item
         this.infoRecords[slot] = {
           size: size,

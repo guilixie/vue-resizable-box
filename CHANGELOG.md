@@ -1,4 +1,14 @@
-### 1.1.1 (HEAD -> master)
+### :bug: when option prop switch to another object,the button style be messy (HEAD -> master)
+>Wed, 13 Mar 2019 14:03:20 +0800
+
+>Author: guilixie (597634713@qq.com)
+
+>Commiter: guilixie (597634713@qq.com)
+
+
+
+
+### 1.1.1 (origin/master, origin/HEAD)
 >Sun, 3 Mar 2019 21:35:53 +0800
 
 >Author: guilixie (597634713@qq.com)
@@ -18,7 +28,7 @@
 
 
 
-### :ambulance: optimize code and enhance functionality (origin/master, origin/HEAD)
+### :ambulance: optimize code and enhance functionality
 >Sat, 2 Mar 2019 23:47:14 +0800
 
 >Author: guilixie (597634713@qq.com)
@@ -38,7 +48,7 @@
 
 
 
-### 1.1.0 (tag: v1.1.0)
+### 1.1.0
 >Fri, 1 Mar 2019 23:39:03 +0800
 
 >Author: guilixie (597634713@qq.com)
@@ -48,7 +58,7 @@
 
 
 
-### 1.0.5 (tag: v1.0.5)
+### 1.0.5
 >Fri, 1 Mar 2019 23:33:23 +0800
 
 >Author: guilixie (597634713@qq.com)
@@ -98,7 +108,7 @@
 
 
 
-### 1.0.4 (tag: v1.0.4)
+### 1.0.4
 >Mon, 25 Feb 2019 23:23:46 +0800
 
 >Author: guilixie (597634713@qq.com)
@@ -118,7 +128,7 @@
 
 
 
-### 1.0.3 (tag: v1.0.3)
+### 1.0.3
 >Sun, 24 Feb 2019 15:11:04 +0800
 
 >Author: guilixie (597634713@qq.com)
@@ -128,7 +138,7 @@
 
 
 
-### 1.0.2 (tag: v1.0.2)
+### 1.0.2
 >Sun, 24 Feb 2019 15:05:33 +0800
 
 >Author: guilixie (597634713@qq.com)
