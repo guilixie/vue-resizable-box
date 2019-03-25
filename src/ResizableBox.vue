@@ -1,20 +1,27 @@
 <template>
   <div class="resizable-box">
     <div class="content-wrap" :class="mode">
-      <div v-for="(opt, slot, index) in option" :style="{[mode==='horizontal' ? 'width' : 'height']: (opt.size * 100) / totalSize + '%'}" :key="slot" class="section-wrap" :ref="`section_wrap_${slot}`">
-        <div class="show-box" v-show="opt.size != 0">
-          <div class="expand-btn-box" v-for="(btn, idx) in opt.buttons" :key="`buttons_${idx}`" :style="btn.position" :class="[btn.direction, !btn.isExpanded ? 'not-expand' : '']" @click="switchBox(btn, idx, slot)">
+      <div v-for="(opt, slot, index) in computedOption" :style="{[mode==='horizontal' ? 'width' : 'height']: (opt.size * 100) / totalSize + '%'}" :key="slot" class="section-wrap" :ref="`section_wrap_${slot}`">
+        <div class="show-box" v-show="opt.size != 0" :class="opt.isFull ? 'is-full-screen' : ''">
+          <div class="expand-btn-box" v-show="!opt.fullscreen || !opt.isFull" v-for="(btn, idx) in opt.buttons" :key="`buttons_${idx}`" :style="btn.position" :class="[btn.direction, !btn.isExpanded ? 'not-expand' : '']" @click.stop="switchBox(btn, idx, slot)">
             <i :class="btn.icon" class="expand-btn" />
           </div>
           <slot :name="slot"></slot>
+          <div class="extensible-icon" @click.stop="opt.isFull = !opt.isFull" v-if="opt.fullscreen">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" class="inner-icon">
+              <path v-if="!opt.isFull" d="M512 63v91.59h280.97L528.81 418.75l64.76 64.76 273.32-273.33v299.3h91.59V63H512zM483.92 593.15l-64.76-64.76L157.1 790.45V514.52H65.52V961H512v-91.59H207.66l276.26-276.26z"></path>
+              <path v-else d="M961 128.08l-64.82-64.82L598.64 360.8V72.21h-91.66v432.72H70.16v91.66h292.17L63 895.92l64.82 64.82L425.36 663.2v288.59h91.66V519.07h436.82v-91.66H661.67L961 128.08z"></path>
+            </svg>
+          </div>
         </div>
-         <div class="resize-bar start-resize-bar" :ref="`${slot}_${index}_start`" v-if="resizable && index!==0" @mousedown="getStartPosition($event, { type: 'start', slot, index})"></div>
-      <div class="resize-bar end-resize-bar" :ref="`${slot}_${index}_end`" v-if="resizable && index!==slotNum-1" @mousedown="getStartPosition($event, {type: 'end', slot, index})"></div>
+        <div class="resize-bar start-resize-bar" :ref="`${slot}_${index}_start`" v-if="resizable && index!==0" @mousedown="getStartPosition($event, { type: 'start', slot, index})"></div>
+        <div class="resize-bar end-resize-bar" :ref="`${slot}_${index}_end`" v-if="resizable && index!==slotNum-1" @mousedown="getStartPosition($event, {type: 'end', slot, index})"></div>
       </div>
     </div>
   </div>
 </template>
 <script>
+import Vue from 'vue'
 export default {
   name: 'ResizableBox',
   props: {
@@ -31,6 +38,7 @@ export default {
       default () {
         return {
           left: { // slot名称一致
+            fullscreen: false, // 是否启用全屏按钮
             size: 1, // 尺寸比例
             buttons: [{
               direction: 'right', // 方向 left right up down
@@ -42,6 +50,7 @@ export default {
             }]
           },
           right: {
+            fullscreen: false, // 是否启用全屏按钮
             size: 1,
             buttons: [{
               direction: 'left',
@@ -88,15 +97,18 @@ export default {
     }
   },
   computed: {
+    computedOption () {
+      return Vue.observable(this.setBuildInOpt())
+    },
     slotArr () {
-      return Object.keys(this.option)
+      return Object.keys(this.computedOption)
     },
     slotNum () {
       return this.slotArr.length
     },
     totalSize () {
       let total = 0
-      Object.values(this.option).forEach(item => {
+      Object.values(this.computedOption).forEach(item => {
         let tmp = Number(item.size)
         total += Number.isNaN(tmp) ? 0 : tmp
       })
@@ -104,7 +116,7 @@ export default {
     }
   },
   watch: {
-    option (newVal) {
+    computedOption (newVal) {
       this.recordInfo(newVal)
     }
   },
@@ -115,7 +127,17 @@ export default {
     this.clearEvent()
   },
   methods: {
-    recordInfo (option = this.option) {
+    setBuildInOpt () {
+      return Object.entries(this.option).reduce((acc, item) => {
+        const [slot, opt] = item
+        acc[slot] = opt.fullscreen ? {
+          ...opt,
+          isFull: false
+        } : opt
+        return acc
+      },{})
+    },
+    recordInfo (option = this.computedOption) {
       // 根据slot名缓存尺寸和btn配置信息
       Object.entries(option).forEach(item => {
         const [slot, { size, buttons = [] } = {}] = item
@@ -123,13 +145,13 @@ export default {
           size: size,
           buttons: buttons.map(btn => {
             // 设置默认配置
-            this.setDefaultOpt(btn)
+            this.setDefaultBtnOpt(btn)
             return JSON.parse(JSON.stringify(btn))
           })
         }
       })
     },
-    setDefaultOpt (btn) {
+    setDefaultBtnOpt (btn) {
       if (!btn.hasOwnProperty('direction') || !this.defaultOpt.directions.includes(btn.direction)) {
         throw new Error('请配置direction，使用left、right、up、down表示！')
       }
@@ -152,8 +174,8 @@ export default {
     },
     switchBox (btn, idx, slot) {
       const tSlot = this.getTargetSlot(slot, btn.direction)
-      this.option[slot].size = btn.isExpanded ? (this.option[slot].size + this.option[tSlot].size) : this.infoRecords[slot].size
-      this.option[tSlot].size = btn.isExpanded ? 0 : this.infoRecords[tSlot].size
+      this.computedOption[slot].size = btn.isExpanded ? (this.computedOption[slot].size + this.computedOption[tSlot].size) : this.infoRecords[slot].size
+      this.computedOption[tSlot].size = btn.isExpanded ? 0 : this.infoRecords[tSlot].size
       btn.isExpanded = !btn.isExpanded
     },
     computedPercent (sizeRes) {
@@ -162,7 +184,7 @@ export default {
           const slotEl = this.$refs[`section_wrap_${slot}`]
           sizeRes[slot] = slotEl[0][this.clientMap[this.mode]]
         }
-        this.option[slot].size = sizeRes[slot]
+        this.computedOption[slot].size = sizeRes[slot]
       })
       this.recordInfo()
     },
@@ -393,5 +415,52 @@ export default {
 		left -6px
 		border-bottom-width 0
 		border-top-color #409eff
+
+.is-full-screen
+  position fixed
+  left 0
+  right 0
+  bottom 0
+  top 0
+  z-index 10000
+  background #fff
+
+.extensible-icon
+	display inline-block
+	line-height 1
+	white-space nowrap
+	cursor pointer
+	-webkit-appearance none
+	text-align center
+	box-sizing border-box
+	outline none
+	margin 0
+	transition 0.1s
+	-moz-user-select none
+	-webkit-user-select none
+	-ms-user-select none
+	font-size 14px
+	font-weight 500
+	border 1px solid #b3d8ff
+	border-radius 4px
+	color #409eff
+	background #ecf5ff
+	position absolute
+	top 15px
+	right 15px
+	z-index 1
+	padding 5px 8px
+
+	.inner-icon
+    width 16px
+    height 16px
+    fill currentColor
+    overflow hidden
+
+	&:focus,
+	&:hover
+		background #409eff
+		border-color #409eff
+		color #fff
 
 </style>

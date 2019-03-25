@@ -65,6 +65,8 @@ module.exports = {
         extensions: ['*', '.js', '.vue', '.json']
     },
     devServer: {
+        host: process.env.HOST || '0.0.0.0',
+        port: process.env.PORT && Number(process.env.PORT) || 3000,
         contentBase: path.join(__dirname, 'src/dev'),
         historyApiFallback: true,
         noInfo: true,
