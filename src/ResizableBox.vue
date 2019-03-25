@@ -15,8 +15,6 @@
   </div>
 </template>
 <script>
-import './iconfont.css'
-
 export default {
   name: 'ResizableBox',
   props: {
@@ -36,7 +34,7 @@ export default {
             size: 1, // 尺寸比例
             buttons: [{
               direction: 'right', // 方向 left right up down
-              icon: 'iconfont icon-arrow-right', // 图标
+              icon: 'icon-arrow icon-arrow-right', // 图标
               position: {
                 right: '-1px'
               }, // 相对于本slot绝对定位位置
@@ -47,7 +45,7 @@ export default {
             size: 1,
             buttons: [{
               direction: 'left',
-              icon: 'iconfont icon-arrow-left',
+              icon: 'icon-arrow icon-arrow-left',
               position: {
                 left: '-1px'
               },
@@ -71,10 +69,10 @@ export default {
       defaultOpt: {
         directions: ['left', 'right', 'up', 'down'],
         icon: {
-          left: 'iconfont icon-arrow-left',
-          right: 'iconfont icon-arrow-right',
-          up: 'iconfont icon-arrow-up',
-          down: 'iconfont icon-arrow-down'
+          left: 'icon-arrow icon-arrow-left',
+          right: 'icon-arrow icon-arrow-right',
+          up: 'icon-arrow icon-arrow-up',
+          down: 'icon-arrow icon-arrow-down'
         },
         position: {
           left: { left: '-1px' },
@@ -227,7 +225,7 @@ export default {
   }
 }
 </script>
-<style lang="stylus">
+<style lang="stylus" scoped>
 .resizable-box
   width 100%
   height 100%
@@ -340,4 +338,60 @@ export default {
           right 0
     &>.section-wrap + .section-wrap
       border-top 1px solid #ebeef5
+
+
+.icon-arrow
+	position relative
+	width 0
+	height 0
+	border 6px solid transparent
+
+	&:after
+		content ''
+		display inline-block
+		position absolute
+		width 0
+		height 0
+		border 6px solid transparent
+
+.icon-arrow-left
+	border-left-width 0
+	border-right-color #fff
+
+	&:after
+		left 2px
+		top -6px
+		border-left-width 0
+		border-right-color #409eff
+
+.icon-arrow-right
+	border-right-width 0
+	border-left-color #fff
+
+	&:after
+		right 2px
+		top -6px
+		border-right-width 0
+		border-left-color #409eff
+
+.icon-arrow-up
+	border-top-width 0
+	border-bottom-color #fff
+
+	&:after
+		top 2px
+		left -6px
+		border-top-width 0
+		border-bottom-color #409eff
+
+.icon-arrow-down
+	border-bottom-width 0
+	border-top-color #fff
+
+	&:after
+		bottom 2px
+		left -6px
+		border-bottom-width 0
+		border-top-color #409eff
+
 </style>

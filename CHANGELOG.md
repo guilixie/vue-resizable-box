@@ -1,4 +1,14 @@
-### update README.md (HEAD -> master)
+### :fire: delete iconfont (HEAD -> master)
+>Mon, 25 Mar 2019 13:52:05 +0800
+
+>Author: guilixie (597634713@qq.com)
+
+>Commiter: guilixie (597634713@qq.com)
+
+
+
+
+### update README.md (origin/master, origin/HEAD)
 >Wed, 27 Feb 2019 15:13:12 +0800
 
 >Author: guilixie (597634713@qq.com)
@@ -8,7 +18,7 @@
 
 
 
-### 1.1.2 (tag: v1.1.2, origin/master, origin/HEAD)
+### 1.1.2 (tag: v1.1.2)
 >Wed, 13 Mar 2019 14:03:31 +0800
 
 >Author: guilixie (597634713@qq.com)
