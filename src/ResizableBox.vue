@@ -115,11 +115,6 @@ export default {
       return total
     }
   },
-  watch: {
-    computedOption (newVal) {
-      this.recordInfo(newVal)
-    }
-  },
   created () {
     this.recordInfo()
   },
@@ -127,9 +122,25 @@ export default {
     this.clearEvent()
   },
   methods: {
+    handleSize (opt) {
+      const handler = str => +str.replace(/(\d+)(.*)/g, '$1')
+      // 如果opt是object
+      if ({}.toString.call(opt) === '[object Object]') {
+        return {
+          ...opt,
+          size: typeof opt.size === 'string' ? handler(opt.size) : opt.size
+        }
+      } else if (typeof opt === 'string') {
+        // string
+        return { size: handler(opt) }
+      }
+      // number
+      return { size: opt }
+    },
     setBuildInOpt () {
       return Object.entries(this.option).reduce((acc, item) => {
-        const [slot, opt] = item
+        let [slot, opt] = item
+        opt = this.handleSize(opt)
         acc[slot] = opt.fullscreen ? {
           ...opt,
           isFull: false
