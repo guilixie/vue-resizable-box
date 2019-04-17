@@ -55,12 +55,12 @@ require(['vue', 'vue-resizable-box'], function(Vue, VueResizableBox) {
             }
         },
         template: '<vue-resizable-box :option="option">\
-          <div slot="left">left-content</div>\
-          <div slot="center" class="box-all">\
-            <vue-resizable-box :option="option1" mode="vertical"></vue-resizable-box>\
-          </div>\
-          <div slot="right">right-content</div>\
-        </vue-resizable-box>'
+            <template #left><div>left-content</div></template>\
+            <template #center class="box-all">\
+              <vue-resizable-box :option="option1" mode="vertical"></vue-resizable-box>\
+            </template>\
+            <template #right><div>right-content</div></template>\
+          </vue-resizable-box>'
     }).$mount('#main');
 
 });

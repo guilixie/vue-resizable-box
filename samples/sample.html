@@ -7,16 +7,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>sample</title>
     <style>
-        html,
-        body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-        }
+      html,
+      body {
+          margin: 0;
+          padding: 0;
+          height: 100%;
+      }
 
-        .box-all {
-            height: 100%;
-        }
+      .box-all {
+          height: 100%;
+      }
     </style>
 </head>
 
@@ -80,11 +80,11 @@
                 }
             },
             template: '<vue-resizable-box :option="option">\
-              <div slot="left">left-content</div>\
-              <div slot="center" class="box-all">\
+              <template #left><div>left-content</div></template>\
+              <template #center class="box-all">\
                 <vue-resizable-box :option="option1" mode="vertical"></vue-resizable-box>\
-              </div>\
-              <div slot="right">right-content</div>\
+              </template>\
+              <template #right><div>right-content</div></template>\
             </vue-resizable-box>'
         }).$mount('#main');
     </script>

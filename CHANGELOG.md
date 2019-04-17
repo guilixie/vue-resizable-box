@@ -1,5 +1,15 @@
-### :sparkles: update (HEAD -> master)
+### :sparkles: update
 >Wed, 17 Apr 2019 20:31:42 +0800
+
+>Author: guilixie (597634713@qq.com)
+
+>Commiter: guilixie (597634713@qq.com)
+
+
+
+
+### :sparkles: make size option friendly (origin/master, origin/HEAD)
+>Wed, 3 Apr 2019 22:03:01 +0800
 
 >Author: guilixie (597634713@qq.com)
 

@@ -2,7 +2,7 @@
 
 ## Introduction
 
-A vue component, built up based on [Vue.js](https://cn.vuejs.org/) `v2.x`.
+A vue component, built up based on [Vue.js](https://cn.vuejs.org/) `v2.6`+.
 
 ## Features
 
@@ -35,15 +35,21 @@ Include `vue-resizable-box` in your HTML file like this:
 ```vue
 <template>
   <resizable-box :option="option">
-    <div #left>
-      <h2>left</h2>
-    </div>
-    <div #center>
-      <h2>center</h2>
-    </div>
-    <div #right>
-      <h2>right</h2>
-    </div>
+    <template #left>
+      <div>
+        <h2>left</h2>
+      </div>
+    </template>
+    <template #center>
+      <div>
+        <h2>center</h2>
+      </div>
+    </template>
+    <template #right>
+      <div>
+        <h2>right</h2>
+      </div>
+    </template>
   </resizable-box>
 </template>
 
@@ -95,158 +101,169 @@ Vue.use(ResizableBox)
 ```js
 require.config({
   paths: {
-    'vue': 'path/to/vue',
-    'echarts': 'path/to/echarts',
-    'vue-echarts': 'path/to/vue-ehcarts'
+    vue: ['/path/vue'],
+    'vue-resizable-box': ['/path/vue-resizable-box']
   }
 })
 
 require(['vue', 'vue-resizable-box'], function(Vue, VueResizableBox) {
-    var option = {
-        left: {
-            size: 1,
-            buttons: [{
-                direction: 'right'
-            }]
-        },
-        center: {
-            size: 2,
-            buttons: [{
-                direction: 'left'
-            }, {
-                direction: 'right'
-            }]
-        },
-        right: {
-            size: 1,
-            buttons: [{
-                direction: 'left'
-            }]
-        }
-    };
+  var option = {
+    left: {
+      size: 1,
+      buttons: [{
+        direction: 'right'
+      }]
+    },
+    center: {
+      size: 2,
+      buttons: [{
+        direction: 'left'
+      }, {
+        direction: 'right'
+      }]
+    },
+    right: {
+      size: 1,
+      buttons: [{
+        direction: 'left'
+      }]
+    }
+  };
 
-    Vue.use(VueResizableBox);
+  Vue.use(VueResizableBox);
 
-    new Vue({
-        data: function() {
-            return {
-                option: option
-            }
-        },
-        template: '<vue-resizable-box :option="option">\
-          <div #left>left-content</div>\
-          <div #center class="box-all"></div>\
-          <div #right>right-content</div>\
-        </vue-resizable-box>'
-    }).$mount('#main');
-
+  new Vue({
+    data: function() {
+      return {
+        option: option
+      }
+    },
+    template: '<vue-resizable-box :option="option">\
+      <template #left>\
+        <div>left-content</div>\
+      </template>\
+      <template #center>\
+        <div>right-content</div>\
+      </template>\
+      <template #right>\
+        <div>right-content</div>\
+      </template>\
+    </vue-resizable-box>'
+  }).$mount('#main');
 });
 ```
 
-### Global variable
+For example, [amd demo](https://github.com/guilixie/vue-resizable-box/blob/master/samples/amd-sample/index.html)
 
-Without any module system, the component is exposed as `window.VueECharts`.
+### For CDN
 
-```js
-// register component to use
-Vue.component('v-chart', VueECharts)
-```
-
-## Using the component
-
-```vue
-<template>
-<v-chart :options="polar"/>
-</template>
-
-<style>
-/**
- * The default size is 600px×400px, for responsive charts
- * you may need to set percentage values as follows (also
- * don't forget to provide a size for the container).
- */
-.echarts {
-  width: 100%;
-  height: 100%;
-}
-</style>
-
-<script>
-import ECharts from 'vue-echarts'
-import 'echarts/lib/chart/line'
-import 'echarts/lib/component/polar'
-
-export default {
-  components: {
-    'v-chart': ECharts
-  },
-  data () {
-    let data = []
-
-    for (let i = 0; i <= 360; i++) {
-        let t = i / 180 * Math.PI
-        let r = Math.sin(2 * t) * Math.cos(2 * t)
-        data.push([r, i])
+```html
+<head>
+  <style>
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
     }
 
-    return {
-      polar: {
-        title: {
-          text: '极坐标双数值轴'
-        },
-        legend: {
-          data: ['line']
-        },
-        polar: {
-          center: ['50%', '54%']
-        },
-        tooltip: {
-          trigger: 'axis',
-          axisPointer: {
-            type: 'cross'
-          }
-        },
-        angleAxis: {
-          type: 'value',
-          startAngle: 0
-        },
-        radiusAxis: {
-          min: 0
-        },
-        series: [
-          {
-            coordinateSystem: 'polar',
-            name: 'line',
-            type: 'line',
-            showSymbol: false,
-            data: data
-          }
-        ],
-        animationDuration: 2000
+    .box-all {
+        height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="main"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.6/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue-resizable-box/dist/vue-resizable-box.js"></script>
+  <script>
+    var option = {
+      left: {
+        size: 1,
+        buttons: [{
+          direction: 'right'
+        }]
+      },
+      center: {
+        size: 2,
+        buttons: [{
+          direction: 'left'
+        }, {
+          direction: 'right'
+        }]
+      },
+      right: {
+        size: 1,
+        buttons: [{
+          direction: 'left'
+        }]
       }
-    }
-  }
-}
-</script>
+    };
+
+    var option1 = {
+      top: {
+        size: 1,
+        buttons: [{
+          direction: 'down'
+        }]
+      },
+      center: {
+        size: 1,
+        buttons: [{
+          direction: 'up'
+        }, {
+          direction: 'down'
+        }]
+      },
+      bottom: {
+        size: 1,
+        buttons: [{
+          direction: 'up'
+        }]
+      }
+    };
+
+    new Vue({
+      data: function() {
+        return {
+          option: option,
+          option1: option1
+        }
+      },
+      template: '<vue-resizable-box :option="option">\
+        <template #left>\
+          <div>left-content</div>\
+        </template>\
+        <template #center class="box-all">\
+          <vue-resizable-box :option="option1" mode="vertical"></vue-resizable-box>\
+        </template>\
+        <template #right>\
+          <div>right-content</div>\
+        </template>\
+      </vue-resizable-box>'
+    }).$mount('#main');
+  </script>
+</body>
 ```
 
-See more examples [here](https://github.com/ecomfe/vue-echarts/tree/master/src/demo).
+For example, [demo](https://github.com/guilixie/vue-resizable-box/blob/master/samples/sample.html)
+
+> See more examples [here](https://github.com/guilixie/vue-resizable-box/tree/master/samples/sample-app/dist/index.html).
 
 ### Props
 
-* `initOptions`
+* `mode`
 
-  Used to initialize ECharts instance.
+  Used to initialize Boxes arrangement.There are two modes,`horizontal` and `vertical`, default mode is `horizontal`.
 
-* `theme`
+* `resizable`
 
-  The theme used for current ECharts instance.
+  Used to define if the box is resizable,Default `true`.
 
-* `options`
+* `option`
 
-  Used to update data for ECharts instance. Modifying this prop will trigger ECharts' `setOption` method.
-
-  If you mutate the data bound to `options` while retaining the object reference, `setOption` will be called with `notMerge: false`. Otherwise, if you bind a new object to `options`, `setOption` will be called with `notMerge: true`.
+  Used to set boxes.
 
   For example, if we have the following template:
 
@@ -260,15 +277,3 @@ See more examples [here](https://github.com/ecomfe/vue-echarts/tree/master/src/d
   this.data = newObject // setOption(this.options, true)
   this.data.title.text = 'Trends' // setOption(this.options, false)
   ```
-
-* `group`
-
-  This prop is automatically bound to the same prop of the ECharts instance.
-
-* `autoresize` (default: `false`)
-
-  This prop indicates ECharts instance should be resized automatically whenever its root is resized.
-
-* `manual-update` (default: `false`)
-
-  For performance critical scenarios (having a large dataset) we'd better bypass Vue's reactivity system for `options` prop. By specifying `manual-update` prop with `true` and not providing `options` prop, the dataset won't be watched any more. After doing so, you need to retrieve the component instance with `ref` and manually call `mergeOptions` method to update the chart.

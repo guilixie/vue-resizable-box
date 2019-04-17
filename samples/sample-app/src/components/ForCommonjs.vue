@@ -1,6 +1,6 @@
 <template>
   <resizable-box :option="option">
-    <div #left>
+    <template #left>
       <h2>方圆几里</h2>
       <p>
         感觉很诚恳 是好事
@@ -71,21 +71,21 @@
         <br>
         只要你转身 我就在这里
       </p>
-    </div>
-    <div #center class="box-all">
+    </template>
+    <template #center class="box-all">
       <resizable-box :option="option1" mode="vertical">
-        <div class="box-all  flex-middle" #top>
+        <template class="box-all  flex-middle" #top>
           <h2>年少有为</h2>
-        </div>
-        <div class="box-all  flex-middle" #center>
+        </template>
+        <template class="box-all  flex-middle" #center>
           <h2>光年之外</h2>
-        </div>
-        <div class="box-all  flex-middle" #bottom>
+        </template>
+        <template class="box-all  flex-middle" #bottom>
           <h2>可不可以</h2>
-        </div>
+        </template>
       </resizable-box>
-    </div>
-    <div #right>
+    </template>
+    <template #right>
       <h2>天份</h2>
       <p>
         用怀念的方式 在一起的样子
@@ -140,7 +140,7 @@
         <br>
         让沉默的秒针 代替我的疑问
       </p>
-    </div>
+    </template>
   </resizable-box>
 </template>
 <script>
