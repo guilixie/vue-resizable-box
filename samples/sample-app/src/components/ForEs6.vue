@@ -1,6 +1,6 @@
 <template>
   <resizable-box :option="option">
-    <div slot="left">
+    <div #left>
       <h2>方圆几里</h2>
       <p>
         感觉很诚恳 是好事
@@ -13,14 +13,14 @@
         反正我也无处可去
       </p>
       <p>
-        我怕太负责任的人 因为他随时会牺牲 
+        我怕太负责任的人 因为他随时会牺牲
         <br>
-        爱不爱都可以 我怎样都依你 
+        爱不爱都可以 我怎样都依你
         <br>
         连借口 我都帮你寻
       </p>
       <p>
-        与其在你不要的世界里 不如痛快把你忘记 
+        与其在你不要的世界里 不如痛快把你忘记
         <br>
         这道理谁都懂 说容易 爱透了还要嘴硬
         <br>
@@ -72,20 +72,20 @@
         只要你转身 我就在这里
       </p>
     </div>
-    <div slot="center" class="box-all">
+    <div #center class="box-all">
       <resizable-box :option="option1" mode="vertical">
-        <div class="box-all  flex-middle" slot="top">
+        <div class="box-all flex-middle" #top>
           <h2>年少有为</h2>
         </div>
-        <div class="box-all  flex-middle" slot="center">
+        <div class="box-all flex-middle" #center>
           <h2>光年之外</h2>
         </div>
-        <div class="box-all  flex-middle" slot="bottom">
+        <div class="box-all flex-middle" #bottom>
           <h2>可不可以</h2>
         </div>
       </resizable-box>
     </div>
-    <div slot="right">
+    <div #right>
       <h2>天份</h2>
       <p>
         用怀念的方式 在一起的样子

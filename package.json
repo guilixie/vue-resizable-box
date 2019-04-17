@@ -16,10 +16,13 @@
     "keywords": [
         "vue",
         "vue2",
-        "resizable",
         "resizable-box",
         "expand",
-        "resize"
+        "resize",
+        "collapsible",
+        "resizable",
+        "draggable",
+        "extensible"
     ],
     "author": "guilixie <597634713@qq.com>",
     "private": false,
