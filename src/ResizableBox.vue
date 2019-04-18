@@ -2,7 +2,7 @@
   <div class="resizable-box">
     <div class="content-wrap" :class="mode">
       <div v-for="(opt, slot, index) in computedOption" :style="{[mode==='horizontal' ? 'width' : 'height']: (opt.size * 100) / totalSize + '%'}" :key="slot" class="section-wrap" :ref="`section_wrap_${slot}`">
-        <div class="show-box" v-show="opt.size != 0" :class="opt.isFull ? 'is-full-screen' : ''">
+        <div class="show-box" v-show="opt.size != 0" :class="{'is-full-screen': opt.isFull}">
           <div class="expand-btn-box" v-show="!opt.fullscreen || !opt.isFull" v-for="(btn, idx) in opt.buttons" :key="`buttons_${idx}`" :style="btn.position" :class="[btn.direction, !btn.isExpanded ? 'not-expand' : '']" @click.stop="switchBox(btn, idx, slot)">
             <i :class="btn.icon" class="expand-btn" />
           </div>
@@ -39,6 +39,7 @@ export default {
         return {
           left: { // slot名称一致
             fullscreen: false, // 是否启用全屏按钮
+            isFull: false,
             size: 1, // 尺寸比例
             buttons: [{
               direction: 'right', // 方向 left right up down
@@ -51,6 +52,7 @@ export default {
           },
           right: {
             fullscreen: false, // 是否启用全屏按钮
+            isFull: false,
             size: 1,
             buttons: [{
               direction: 'left',
@@ -141,10 +143,7 @@ export default {
       return Object.entries(this.option).reduce((acc, item) => {
         let [slot, opt] = item
         opt = this.handleSize(opt)
-        acc[slot] = opt.fullscreen ? {
-          ...opt,
-          isFull: false
-        } : opt
+        acc[slot] = {...opt, isFull: false }
         return acc
       },{})
     },

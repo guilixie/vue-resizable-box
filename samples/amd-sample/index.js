@@ -2,6 +2,7 @@ require(['vue', 'vue-resizable-box'], function(Vue, VueResizableBox) {
     var option = {
         left: {
             size: 1,
+            fullscreen: true,
             buttons: [{
                 direction: 'right'
             }]

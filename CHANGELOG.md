@@ -1,4 +1,14 @@
-### 1.2.0 (HEAD -> master)
+### :bug: fix (HEAD -> master)
+>Thu, 18 Apr 2019 11:23:11 +0800
+
+>Author: guilixie (597634713@qq.com)
+
+>Commiter: guilixie (597634713@qq.com)
+
+
+
+
+### 1.2.0 (tag: v1.2.0)
 >Thu, 18 Apr 2019 10:40:30 +0800
 
 >Author: guilixie (597634713@qq.com)
