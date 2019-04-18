@@ -2,7 +2,7 @@
 
 ## Introduction
 
-A vue component, built up based on [Vue.js](https://cn.vuejs.org/) `v2.6`+.
+A vue component, built up based on [Vue.js](https://cn.vuejs.org/) `v2.x`.
 
 ## Features
 
@@ -85,6 +85,8 @@ export default {
 }
 </script>
 ```
+
+#### ⚠️ look out: `<template #center>` is the same as `<template v-slot="center">`, but you need `vue 2.6+`.For a detailed explanation,check out the [插槽-Vue.js](https://cn.vuejs.org/v2/guide/components-slots.html)
 
 ### For Commonjs
 

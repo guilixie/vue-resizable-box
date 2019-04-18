@@ -2,14 +2,14 @@
   <div class="resizable-box">
     <div class="content-wrap" :class="mode">
       <div v-for="(opt, slot, index) in computedOption" :style="{[mode==='horizontal' ? 'width' : 'height']: (opt.size * 100) / totalSize + '%'}" :key="slot" class="section-wrap" :ref="`section_wrap_${slot}`">
-        <div class="show-box" v-show="opt.size != 0" :class="{'is-full-screen': opt.isFull}">
-          <div class="expand-btn-box" v-show="!opt.fullscreen || !opt.isFull" v-for="(btn, idx) in opt.buttons" :key="`buttons_${idx}`" :style="btn.position" :class="[btn.direction, !btn.isExpanded ? 'not-expand' : '']" @click.stop="switchBox(btn, idx, slot)">
+        <div class="show-box" v-show="opt.size !== 0" :class="{'is-full-screen': opt.isfull}">
+          <div class="expand-btn-box" v-show="!opt.fullscreen || !opt.isfull" v-for="(btn, idx) in opt.buttons" :key="`buttons_${idx}`" :style="btn.position" :class="[btn.direction, !btn.isExpanded ? 'not-expand' : '']" @click.stop="switchBox(btn, idx, slot)">
             <i :class="btn.icon" class="expand-btn" />
           </div>
           <slot :name="slot"></slot>
-          <div class="extensible-icon" @click.stop="opt.isFull = !opt.isFull" v-if="opt.fullscreen">
+          <div class="extensible-icon" @click.stop="toggleFullScreen(opt)" v-if="opt.fullscreen">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" class="inner-icon">
-              <path v-if="!opt.isFull" d="M512 63v91.59h280.97L528.81 418.75l64.76 64.76 273.32-273.33v299.3h91.59V63H512zM483.92 593.15l-64.76-64.76L157.1 790.45V514.52H65.52V961H512v-91.59H207.66l276.26-276.26z"></path>
+              <path v-if="!opt.isfull" d="M512 63v91.59h280.97L528.81 418.75l64.76 64.76 273.32-273.33v299.3h91.59V63H512zM483.92 593.15l-64.76-64.76L157.1 790.45V514.52H65.52V961H512v-91.59H207.66l276.26-276.26z"></path>
               <path v-else d="M961 128.08l-64.82-64.82L598.64 360.8V72.21h-91.66v432.72H70.16v91.66h292.17L63 895.92l64.82 64.82L425.36 663.2v288.59h91.66V519.07h436.82v-91.66H661.67L961 128.08z"></path>
             </svg>
           </div>
@@ -39,7 +39,6 @@ export default {
         return {
           left: { // slot名称一致
             fullscreen: false, // 是否启用全屏按钮
-            isFull: false,
             size: 1, // 尺寸比例
             buttons: [{
               direction: 'right', // 方向 left right up down
@@ -52,7 +51,6 @@ export default {
           },
           right: {
             fullscreen: false, // 是否启用全屏按钮
-            isFull: false,
             size: 1,
             buttons: [{
               direction: 'left',
@@ -100,7 +98,7 @@ export default {
   },
   computed: {
     computedOption () {
-      return Vue.observable(this.setBuildInOpt())
+      return this.setBuildInOpt()
     },
     slotArr () {
       return Object.keys(this.computedOption)
@@ -124,26 +122,31 @@ export default {
     this.clearEvent()
   },
   methods: {
+    toggleFullScreen(opt){
+      opt.isfull = !opt.isfull
+    },
     handleSize (opt) {
       const handler = str => +str.replace(/(\d+)(.*)/g, '$1')
+      const obj = {}
       // 如果opt是object
       if ({}.toString.call(opt) === '[object Object]') {
-        return {
-          ...opt,
-          size: typeof opt.size === 'string' ? handler(opt.size) : opt.size
-        }
+        opt.size = typeof opt.size === 'string' ? handler(opt.size) : opt.size
+        return opt
       } else if (typeof opt === 'string') {
         // string
-        return { size: handler(opt) }
+        this.$set(obj, 'size', handler(opt))
+      } else {
+        // number
+        this.$set(obj, 'size', opt)
       }
-      // number
-      return { size: opt }
+      return obj
     },
     setBuildInOpt () {
       return Object.entries(this.option).reduce((acc, item) => {
         let [slot, opt] = item
         opt = this.handleSize(opt)
-        acc[slot] = {...opt, isFull: false }
+        this.$set(opt, 'isfull', false)
+        acc[slot] = opt
         return acc
       },{})
     },
