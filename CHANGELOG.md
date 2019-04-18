@@ -1,4 +1,14 @@
-### update (HEAD -> master)
+### 1.2.3 (HEAD -> master)
+>Thu, 18 Apr 2019 14:13:25 +0800
+
+>Author: guilixie (597634713@qq.com)
+
+>Commiter: guilixie (597634713@qq.com)
+
+
+
+
+### update (origin/master, origin/HEAD)
 >Thu, 18 Apr 2019 14:08:08 +0800
 
 >Author: guilixie (597634713@qq.com)
@@ -8,7 +18,7 @@
 
 
 
-### 1.2.2 (tag: v1.2.2, origin/master, origin/HEAD)
+### 1.2.2 (tag: v1.2.2)
 >Thu, 18 Apr 2019 13:35:39 +0800
 
 >Author: guilixie (597634713@qq.com)
