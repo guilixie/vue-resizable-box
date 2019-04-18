@@ -25,7 +25,7 @@ $ yarn add vue-resizable-box
 Include `vue-resizable-box` in your HTML file like this:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/vue-resizable-box@1.1.3/dist/vue-resizable-box.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue-resizable-box/dist/vue-resizable-box.js"></script>
 ```
 
 ## Usage
@@ -86,7 +86,9 @@ export default {
 </script>
 ```
 
-#### ⚠️ look out: `<template #center>` is the same as `<template v-slot="center">`, but you need `vue 2.6+`.For a detailed explanation,check out the [插槽-Vue.js](https://cn.vuejs.org/v2/guide/components-slots.html)
+#### ⚠️ look out
+
+`<template #center>` is the same as `<template v-slot="center">`, but you need `vue 2.6+`.For a detailed explanation,check out the [插槽-Vue.js](https://cn.vuejs.org/v2/guide/components-slots.html)
 
 ### For Commonjs
 
@@ -155,7 +157,7 @@ require(['vue', 'vue-resizable-box'], function(Vue, VueResizableBox) {
 });
 ```
 
-For example, [amd demo](https://github.com/guilixie/vue-resizable-box/blob/master/samples/amd-sample/index.html)
+For example, [amd demo](https://guilixie.github.io/vue-resizable-box/samples/amd-sample/index.html)
 
 ### For CDN
 
@@ -249,9 +251,9 @@ For example, [amd demo](https://github.com/guilixie/vue-resizable-box/blob/maste
 </body>
 ```
 
-For example, [demo](https://github.com/guilixie/vue-resizable-box/blob/master/samples/sample.html)
+For example, [demo](https://guilixie.github.io/vue-resizable-box/samples/sample.html)
 
-> See more examples [here](https://github.com/guilixie/vue-resizable-box/tree/master/samples/sample-app/dist/index.html).
+> See more examples [here](https://guilixie.github.io/vue-resizable-box/samples/sample-app/dist/index.html).
 
 ### Props
 
