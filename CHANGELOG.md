@@ -1,4 +1,14 @@
-### :memo: update README.md (HEAD -> master)
+### 1.2.0 (HEAD -> master)
+>Thu, 18 Apr 2019 10:40:30 +0800
+
+>Author: guilixie (597634713@qq.com)
+
+>Commiter: guilixie (597634713@qq.com)
+
+
+
+
+### :memo: update README.md
 >Thu, 18 Apr 2019 10:37:03 +0800
 
 >Author: guilixie (597634713@qq.com)
