@@ -1,4 +1,14 @@
-### :bug: fix bug，:bookmark: publish v1.2.2 (HEAD -> master)
+### 1.2.2 (HEAD -> master)
+>Thu, 18 Apr 2019 13:35:39 +0800
+
+>Author: guilixie (597634713@qq.com)
+
+>Commiter: guilixie (597634713@qq.com)
+
+
+
+
+### :bug: fix bug，:bookmark: publish v1.2.2
 >Thu, 18 Apr 2019 13:35:30 +0800
 
 >Author: guilixie (597634713@qq.com)
