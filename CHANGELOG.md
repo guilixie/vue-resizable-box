@@ -1,4 +1,14 @@
-### 1.2.4 (HEAD -> master)
+### :sparkles: update sample-app (HEAD -> master)
+>Thu, 18 Apr 2019 14:35:53 +0800
+
+>Author: guilixie (597634713@qq.com)
+
+>Commiter: guilixie (597634713@qq.com)
+
+
+
+
+### 1.2.4 (tag: v1.2.4)
 >Thu, 18 Apr 2019 14:32:24 +0800
 
 >Author: guilixie (597634713@qq.com)

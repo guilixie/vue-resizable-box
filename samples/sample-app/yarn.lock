@@ -7666,10 +7666,10 @@ vue-loader@^15.7.0:
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
 
-vue-resizable-box@^1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/vue-resizable-box/-/vue-resizable-box-1.2.2.tgz#250dde3c82fd314606a328a98a361f83e6ff4ccd"
-  integrity sha512-f4vtcp0l50S6XIhiGaxSTfaZJ4obkuTyf/brNBFL8JaCqEA/b8RMY3FJoTNJkwWcgnsCXZTs0o5frf65KVQiCw==
+vue-resizable-box@^1.2.4:
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/vue-resizable-box/-/vue-resizable-box-1.2.4.tgz#921fcafb7f75570616286733bfa3e8841788c0bb"
+  integrity sha512-weqHDG7ORqDszoUE4Usn8Eg9Izmwu5Zx/w11Cc0AAcc34euh5R2c1InHyyDlp1+MFLVkJh9jgKUERsTXtibqhQ==
   dependencies:
     vue "2.6.6"
 
