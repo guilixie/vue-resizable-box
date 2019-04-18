@@ -1,3 +1,13 @@
+### :memo: update README.md (HEAD -> master)
+>Thu, 18 Apr 2019 10:37:03 +0800
+
+>Author: guilixie (597634713@qq.com)
+
+>Commiter: guilixie (597634713@qq.com)
+
+
+
+
 ### :sparkles: update
 >Wed, 17 Apr 2019 20:31:42 +0800
 
@@ -8,7 +18,7 @@
 
 
 
-### :sparkles: make size option friendly (origin/master, origin/HEAD)
+### :sparkles: make size option friendly
 >Wed, 3 Apr 2019 22:03:01 +0800
 
 >Author: guilixie (597634713@qq.com)

@@ -255,7 +255,7 @@ For example, [demo](https://github.com/guilixie/vue-resizable-box/blob/master/sa
 
 * `mode`
 
-  Used to initialize Boxes arrangement.There are two modes,`horizontal` and `vertical`, default mode is `horizontal`.
+  Used to initialize boxes arrangement.There are two modes,`horizontal` and `vertical`, default mode is `horizontal`.
 
 * `resizable`
 
@@ -263,17 +263,57 @@ For example, [demo](https://github.com/guilixie/vue-resizable-box/blob/master/sa
 
 * `option`
 
-  Used to set boxes.
+  Used to set every box's configuration.It's an Object,which it's `keys` are `slots` of every box,and it's `values` are configurations of every box.The `values` could be `number` or `string` or `object`,but you must config consistently.
 
-  For example, if we have the following template:
+  You can see as follows:
 
-  ```html
-  <v-chart :options="data"/>
+  |option|type|value|
+  |:--:|:--:|:--:|
+  |`key`|string|slots of boxes, eg: `left`|
+  |`value`|string <br> number <br> object| eg: `100px`, `5rem` <br>eg: `1`, `10`<br> as follows|
+
+  ```js
+  left: { // slot名称一致
+    fullscreen: false, // 是否启用全屏按钮,默认 false
+    size: 1, // 尺寸比例，必须配置
+    buttons: [{
+      direction: 'right', // 方向 left right up down，必须配置
+      icon: 'icon-arrow icon-arrow-right', // 图标，有默认，可不配置
+      position: {
+        right: '-1px'
+      }, // 相对于本slot绝对定位位置，有默认，可不配置
+      isExpanded: true // 默认本slot展开，有默认，可不配置
+    }] // 可不配置 buttons
+  }
   ```
 
-  Then:
+  For example, the default option as follows:
 
-  ```
-  this.data = newObject // setOption(this.options, true)
-  this.data.title.text = 'Trends' // setOption(this.options, false)
+  ```js
+  {
+    left: {
+      fullscreen: false,
+      size: 1,
+      buttons: [{
+        direction: 'right',
+        icon: 'icon-arrow icon-arrow-right',
+        position: {
+          right: '-1px'
+        },
+        isExpanded: true
+      }]
+    },
+    right: {
+      fullscreen: false,
+      size: 1,
+      buttons: [{
+        direction: 'left',
+        icon: 'icon-arrow icon-arrow-left',
+        position: {
+          left: '-1px'
+        },
+        isExpanded: true
+      }]
+    }
+  }
   ```

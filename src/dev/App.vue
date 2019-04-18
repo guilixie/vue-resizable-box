@@ -170,7 +170,7 @@ export default {
       option: {
         left: {
           size: 1,
-          fullscreen: true,
+          // fullscreen: true,
           buttons: [{ direction: 'right' }]
         },
         center: {
@@ -183,7 +183,7 @@ export default {
         },
         right: {
           size: 1,
-          fullscreen: true,
+          fullscreen: false,
           buttons: [{ direction: 'left' }]
         }
       },
