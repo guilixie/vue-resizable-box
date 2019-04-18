@@ -1,4 +1,14 @@
-### :bug: fix (HEAD -> master)
+### 1.2.1 (HEAD -> master)
+>Thu, 18 Apr 2019 11:23:21 +0800
+
+>Author: guilixie (597634713@qq.com)
+
+>Commiter: guilixie (597634713@qq.com)
+
+
+
+
+### :bug: fix
 >Thu, 18 Apr 2019 11:23:11 +0800
 
 >Author: guilixie (597634713@qq.com)
