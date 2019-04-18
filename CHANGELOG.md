@@ -1,4 +1,14 @@
-### :bookmark: publish stable version v1.2.4 (HEAD -> master)
+### 1.2.4 (HEAD -> master)
+>Thu, 18 Apr 2019 14:32:24 +0800
+
+>Author: guilixie (597634713@qq.com)
+
+>Commiter: guilixie (597634713@qq.com)
+
+
+
+
+### :bookmark: publish stable version v1.2.4 (origin/master, origin/HEAD)
 >Thu, 18 Apr 2019 14:32:02 +0800
 
 >Author: guilixie (597634713@qq.com)
@@ -8,7 +18,7 @@
 
 
 
-### 1.2.3 (tag: v1.2.3, origin/master, origin/HEAD)
+### 1.2.3 (tag: v1.2.3)
 >Thu, 18 Apr 2019 14:13:25 +0800
 
 >Author: guilixie (597634713@qq.com)
