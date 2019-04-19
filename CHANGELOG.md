@@ -1,4 +1,14 @@
-### :sparkles: update sample-app (HEAD -> master)
+### :memo: update chinese document (HEAD -> master)
+>Fri, 19 Apr 2019 20:51:03 +0800
+
+>Author: guilixie (597634713@qq.com)
+
+>Commiter: guilixie (597634713@qq.com)
+
+
+
+
+### :sparkles: update sample-app (origin/master, origin/HEAD)
 >Thu, 18 Apr 2019 14:35:53 +0800
 
 >Author: guilixie (597634713@qq.com)
@@ -18,7 +28,7 @@
 
 
 
-### :bookmark: publish stable version v1.2.4 (origin/master, origin/HEAD)
+### :bookmark: publish stable version v1.2.4
 >Thu, 18 Apr 2019 14:32:02 +0800
 
 >Author: guilixie (597634713@qq.com)

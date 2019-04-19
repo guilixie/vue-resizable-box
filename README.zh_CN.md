@@ -1,38 +1,36 @@
 # vue-resizable-box
 
-> [🇨🇳 中文版](./README.zh_CN.md)
+## 说明
 
-## Introduction
+一个Vue组件, 基于 [Vue.js](https://cn.vuejs.org/) `v2.x`构建。
 
-A vue component, built up based on [Vue.js](https://cn.vuejs.org/) `v2.x`.
+## 特性
 
-## Features
+可折叠的, 可变大小, 可拖拽的, 可扩展的
 
-Collapsible, Resizable, Draggable, Extensible
+## 安装
 
-## Installation
-
-### npm or yarn (Recommended)
+### npm 或 yarn (推荐)
 
 ```bash
 $ npm i vue-resizable-box --save
 ```
-or
+或
 ```bash
 $ yarn add vue-resizable-box
 ```
 
 ### CDN
 
-Include `vue-resizable-box` in your HTML file like this:
+在你的HTML文件中引入`vue-resizable-box`，就像这样:
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/vue-resizable-box/dist/vue-resizable-box.js"></script>
 ```
 
-## Usage
+## 使用方法
 
-### For Es6 (Recommended)
+### For Es6 (推荐)
 
 ```vue
 <template>
@@ -88,9 +86,9 @@ export default {
 </script>
 ```
 
-#### ⚠️ look out
+#### ⚠️ 注意
 
-`<template #center>` is the same as `<template v-slot="center">`, but you need `vue 2.6+`.For a detailed explanation,check out the [插槽-Vue.js](https://cn.vuejs.org/v2/guide/components-slots.html)
+`<template #center>` 是 `<template v-slot="center">`的简写形式, 但是你需要 `vue 2.6+`。更多细节说明，请参考Vue官方文档[插槽-Vue.js](https://cn.vuejs.org/v2/guide/components-slots.html)
 
 ### For Commonjs
 
@@ -159,7 +157,7 @@ require(['vue', 'vue-resizable-box'], function(Vue, VueResizableBox) {
 });
 ```
 
-For example, [amd demo](https://guilixie.github.io/vue-resizable-box/samples/amd-sample/index.html)
+举个:chestnut:, [amd 示例](https://guilixie.github.io/vue-resizable-box/samples/amd-sample/index.html)
 
 ### For CDN
 
@@ -253,30 +251,30 @@ For example, [amd demo](https://guilixie.github.io/vue-resizable-box/samples/amd
 </body>
 ```
 
-For example, [demo](https://guilixie.github.io/vue-resizable-box/samples/sample.html)
+举个:chestnut:, [示例](https://guilixie.github.io/vue-resizable-box/samples/sample.html)
 
-> See more examples [here](https://guilixie.github.io/vue-resizable-box/samples/sample-app/dist/index.html).
+> 查看更多示例 [点击这里](https://guilixie.github.io/vue-resizable-box/samples/sample-app/dist/index.html).
 
-### Props
+### 属性
 
 * `mode`
 
-  Used to initialize boxes arrangement.There are two modes,`horizontal` and `vertical`, default mode is `horizontal`.
+  用于初始化盒子排列方式。支持两种模式,`horizontal`和`vertical`, 默认模式是`horizontal`。
 
 * `resizable`
 
-  Used to define if the box is resizable,Default `true`.
+  定义盒子的尺寸是否可变,默认是`true`.
 
 * `option`
 
-  Used to set every box's configuration.It's an Object,which it's `keys` are `slots` of every box,and it's `values` are configurations of every box.The `values` could be `number` or `string` or `object`,but you must config consistently.
+  用于设置每个盒子的配置。它是一个对象，对象的属性对应各盒子的插槽`slot`，对象的某个属性的值对应着它的配置。属性的值可以是`number`或者 `string`或者`object`，但各个盒子的配置需要一致。
 
-  You can see as follows:
+  你可以参考如下:
 
-  |option|type|value|
+  |选项|类型|值|
   |:--:|:--:|:--:|
-  |`key`|string|slots of boxes, eg: `left`|
-  |`value`|string <br> number <br> object| eg: `100px`, `5rem` <br>eg: `1`, `10`<br> as follows|
+  |对象的属性`key`|string|各盒子的插槽名, eg: `left`|
+  |对象的值`value`|string <br> number <br> object| eg: `100px`, `5rem` <br>eg: `1`, `10`<br> 示例如下|
 
   ```js
   left: { // slot名称一致
@@ -293,7 +291,7 @@ For example, [demo](https://guilixie.github.io/vue-resizable-box/samples/sample.
   }
   ```
 
-  For example, the default option as follows:
+  举个:chestnut:，默认配置如下:
 
   ```js
   {
